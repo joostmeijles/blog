@@ -70,6 +70,7 @@ Switch optimize compilations on in `Web.config` (see [here](https://herodigital.
 
 ## Credits
 Many optimizations were taken from articles I found. Special thanks go out to the following persons:
+
 - Ethan Schofer:
 https://herodigital.com/2018/01/11/improving-sitecores-start-up-time/
 - Gary Wenneker: https://gary.wenneker.org/performance-tuning-sitecore-ludicrous-speed/

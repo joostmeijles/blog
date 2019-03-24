@@ -1,4 +1,4 @@
-baseurl = "https://joostmeijles.github.io/blog"
+# baseurl = "https://joostmeijles.github.io/blog"
 languageCode = "en"
 title = "Blog about Sitecore development"
 description = "My personal blog about Sitecore development"
