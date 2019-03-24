@@ -120,6 +120,7 @@ This is for example useful when writing your own catalog importer.</p>
 <li>Create an Entity Composer template</li>
 <li>Add an item definition to the catalog</li>
 <li>Link template to an item definition</li>
+<li>Link sellable item to item definition</li>
 <li>Set a property value for a sellable item</li>
 <li>Link the entity view to the Entity Composer template</li>
 </ul>
@@ -156,12 +157,12 @@ var template = new ComposerTemplate(CommerceEntity.IdPrefix&lt;ComposerTemplate&
 // Create an Entity View that holds the properties
 var entityView = new EntityView
 {
-    Name = name,
+    Name = name, // This name should be different than the ComposerTemplate name. See Sitecore bug #276414.
     DisplayName = name,
     DisplayRank = 0,
     Icon = &quot;piece&quot;
 };
-entityView.SetItemIdForComposerView();
+entityView.SetItemIdForComposerView(); // This is the ItemId you will need to link in the sellable item
 
 templateEntityViewComponent.View.ChildViews.Add(entityView);
 
@@ -171,8 +172,15 @@ var viewProperty = new ViewProperty
     Name = &quot;MyPropertyName&quot;,
     DisplayName = &quot;My example property&quot;,
     OriginalType = &quot;System.String&quot;,
-    IsRequired = false // By default a property is not required
+    IsRequired = false, // By default a property is not required
+    RawValue = &quot;&quot; // This is necesary to please the CatalogTemplateGenerator (present in XC9 update-3)
 };
+
+// The CatalogTemplateGenerator requires a DateTimeOffset to be filled with a compatible value (present in XC9 update-3)
+if (viewProperty.OriginalType == &quot;System.DateTimeOffset&quot;)
+{
+    viewProperty.RawValue = System.DateTimeOffset.Now;
+}
 
 entityView.Properties.Add(viewProperty);
 
@@ -210,6 +218,22 @@ catalog.SetComponent(itemDefinitionsComponent);
 );
 </code></pre>
 
+<h2 id="link-sellable-item-to-item-definition">Link sellable item to item definition</h2>
+
+<p>To link the sellable item to the item definition;</p>
+
+<pre><code>sellableItem.Components.Add(new CatalogsComponent {
+    ChildComponents =
+    {
+        new CatalogComponent
+        {
+            Name = &quot;MyCatalog&quot;,
+            ItemDefinition = &quot;MyDefinition&quot;
+        }
+    }
+});
+</code></pre>
+
 <h2 id="set-a-property-value-for-a-sellable-item">Set a property value for a sellable item</h2>
 
 <p>To add a property value for the linked template we need to;
@@ -224,7 +248,7 @@ var propertyEntityView = new EntityView
     DisplayRank = 0,
     Icon = &quot;piece&quot; // Same as Business Tools adds by default
 };
-propertyEntityView.SetItemIdForComposerView(); // Set an appropriate item id, will result in &quot;Composer-&lt;GUID&gt;&quot; formatted string
+propertyEntityView.ItemId = entityView.ItemId; // Use the item id of the composer template entity view
 
 var viewProperty = new ViewProperty
 {
@@ -274,7 +298,7 @@ sellableItem.Components.Add(composerTemplateViewsComponent);
 fieldList1.Add(templateField.ID, val);
 </code></pre></li>
 
-<li><p>Circular template inheritance error; the generated template inherits from its self. This is not a blocking issue, but to be solved and probably closely related to the template shown twice issue.</p></li>
+<li><p>Circular template inheritance error; the generated template inherits from its self. This occurs when the <code>ComposerTemplate</code> has a <code>EntityView</code> with the same name, and is registered as bug #276414 by Sitecore.</p></li>
 </ul>
       
       <div class="related">

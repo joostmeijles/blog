@@ -16,6 +16,7 @@ Creating a template, adding it to a sellable item, and filling a property value 
 * Create an Entity Composer template
 * Add an item definition to the catalog
 * Link template to an item definition
+* Link sellable item to item definition
 * Set a property value for a sellable item
 * Link the entity view to the Entity Composer template
 
@@ -50,12 +51,12 @@ var template = new ComposerTemplate(CommerceEntity.IdPrefix<ComposerTemplate>() 
 // Create an Entity View that holds the properties
 var entityView = new EntityView
 {
-    Name = name,
+    Name = name, // This name should be different than the ComposerTemplate name. See Sitecore bug #276414.
     DisplayName = name,
     DisplayRank = 0,
     Icon = "piece"
 };
-entityView.SetItemIdForComposerView();
+entityView.SetItemIdForComposerView(); // This is the ItemId you will need to link in the sellable item
 
 templateEntityViewComponent.View.ChildViews.Add(entityView);
 
@@ -65,8 +66,15 @@ var viewProperty = new ViewProperty
     Name = "MyPropertyName",
     DisplayName = "My example property",
     OriginalType = "System.String",
-    IsRequired = false // By default a property is not required
+    IsRequired = false, // By default a property is not required
+    RawValue = "" // This is necesary to please the CatalogTemplateGenerator (present in XC9 update-3)
 };
+
+// The CatalogTemplateGenerator requires a DateTimeOffset to be filled with a compatible value (present in XC9 update-3)
+if (viewProperty.OriginalType == "System.DateTimeOffset")
+{
+    viewProperty.RawValue = System.DateTimeOffset.Now;
+}
 
 entityView.Properties.Add(viewProperty);
 
@@ -101,6 +109,21 @@ template.SetComponent(
 );
 ```
 
+## Link sellable item to item definition
+To link the sellable item to the item definition;
+```
+sellableItem.Components.Add(new CatalogsComponent {
+    ChildComponents =
+    {
+        new CatalogComponent
+        {
+            Name = "MyCatalog",
+            ItemDefinition = "MyDefinition"
+        }
+    }
+});
+```
+
 ## Set a property value for a sellable item
 To add a property value for the linked template we need to;
 - create an entity view with the same name as the template, 
@@ -114,7 +137,7 @@ var propertyEntityView = new EntityView
     DisplayRank = 0,
     Icon = "piece" // Same as Business Tools adds by default
 };
-propertyEntityView.SetItemIdForComposerView(); // Set an appropriate item id, will result in "Composer-<GUID>" formatted string
+propertyEntityView.ItemId = entityView.ItemId; // Use the item id of the composer template entity view
 
 var viewProperty = new ViewProperty
 {
@@ -161,4 +184,4 @@ The Entity Composer functionality is brand new, and while reverse engineering ho
     fieldList1.Add(templateField.ID, val);
     ```
 
-- Circular template inheritance error; the generated template inherits from its self. This is not a blocking issue, but to be solved and probably closely related to the template shown twice issue.
+- Circular template inheritance error; the generated template inherits from its self. This occurs when the `ComposerTemplate` has a `EntityView` with the same name, and is registered as bug #276414 by Sitecore.
