@@ -1,5 +1,5 @@
 [build]
-publish = "docs"
+publish = "publish"
 command = "hugo -b $URL"
 
 [build.environment]
