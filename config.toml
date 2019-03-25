@@ -9,7 +9,7 @@ googleAnalytics = "UA-124806744-1"
 # Number of posts per page
 Paginate = 5
 enableRobotsTXT = true
-publishDir = "docs" # https://gohugo.io/hosting-and-deployment/hosting-on-github/
+# publishDir = "docs" # https://gohugo.io/hosting-and-deployment/hosting-on-github/
 image = "favicon.ico"
 
 [params.assets]
