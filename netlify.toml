@@ -1,4 +1,5 @@
 [build]
+publish = "publish"
 command = "hugo -b $DEPLOY_URL"
 
 [build.environment]
