@@ -1,6 +1,9 @@
 [build]
-publish = "publish"
-command = "hugo -b $DEPLOY_URL"
+    publish = "docs"
+    command = "hugo -b $URL"
 
 [build.environment]
    HUGO_VERSION = "0.53"
+
+[context.deploy-preview]
+    command = "hugo -b $DEPLOY_URL"
