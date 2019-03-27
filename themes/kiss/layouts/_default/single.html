@@ -18,6 +18,16 @@
       <div class="related">{{ partial "related" . }}</div>
       {{ end }}
     </div>
+    <div class="comments">
+      <script src="https://utteranc.es/client.js"
+        repo="joostmeijles/blog"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </div>
     {{ if and (.Site.Params.Info.adsense)  (.Params.adsenseBottom) }}
     {{ partial "adsense" . }}
     {{ end}}
