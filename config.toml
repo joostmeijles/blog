@@ -40,10 +40,6 @@ facebook = ""
 instagram = ""
 codepen = ""
 
-[params.matomoAnalytics]
-siteID = 1
-rootURL = ""
-
 [taxonomies]
 tag ="tags"
 
