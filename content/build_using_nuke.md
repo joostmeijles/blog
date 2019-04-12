@@ -124,8 +124,8 @@ The full code for it can be found [here](https://github.com/avivasolutionsnl/sit
 ## Full build execution plan
 All the Sitecore Docker images together (base, XP, XC, and variants) result in a quite complex build order which isn't managable without a system, like Nuke.Build, that calculates it for you. The current plan, without all *Push* targets (which are used to push the images to a Docker registry), looks as follows:
 
-![buildplan](buildplan.png)
+![buildplan](/buildplan.png)
 
-I hope this article, and the full setup (available [here](
-https://github.com/avivasolutionsnl/sitecore-docker)), will help you to build your (Sitecore) Docker images and I look forward to receiving any feedback!
+I hope this article, and the full setup available [here](
+https://github.com/avivasolutionsnl/sitecore-docker), will help you to build your (Sitecore) Docker images and I look forward to receiving any feedback!
  
