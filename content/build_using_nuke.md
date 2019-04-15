@@ -59,6 +59,7 @@ Above approach, using `DependsOn`, can be applied similarly to build the Sitecor
 # XC (and Sitecore packages)
 Things get more complicated when a running Sitecore system is required to create a Docker image, as is the case for Sitecore XC Docker images. A running Sitecore system is basically required because a Sitecore Package, e.g. Sitecore Commerce Connect, cannot be installed offline. 
 To tackle this challenge during a NUKE build we;
+
 - start Sitecore using Docker Compose
 - install the the Sitecore package
 - stop using Docker Compose
