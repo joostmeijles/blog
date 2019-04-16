@@ -1,5 +1,5 @@
 +++
-title = "Build Docker images using Azure Pipelines"
+title = "Build Docker images using Azure Pipelines 🚀"
 date = "2019-04-15"
 tags = ["Docker", "Azure"]
 +++
