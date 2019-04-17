@@ -139,7 +139,7 @@ The complete Azure Pipelines configuration, reusable to build your own Sitecore 
 
 The live Azure Pipelines build for [sitecore-docker](https://github.com/avivasolutionsnl/sitecore-docker) can be viewed [here](https://dev.azure.com/avivasolutions-public/sitecore-docker/_build/results?buildId=115).
 
-To summarize, to build Sitecore Docker images;
+To summarize, to automatically build Sitecore Docker images using Azure Pipelines;
 
 - fork https://github.com/avivasolutionsnl/sitecore-docker,
 - create an Azure File share, download and add the Sitecore installation files to it,
