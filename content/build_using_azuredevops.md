@@ -6,7 +6,7 @@ tags = ["Docker", "Azure"]
 
 Looking to automate your Sitecore Docker image build? 
 
-We decided to leverage the free, for open source software, (❣) Azure Pipelines offering from Microsoft for this. This article describes how we achieved a fully automated Sitecore Docker image build using Azure Pipelines.
+We decided to leverage the free (❣), for open source software, Azure Pipelines offering from Microsoft for this. This article describes how we achieved a fully automated Sitecore Docker image build using Azure Pipelines.
 <!--more-->
 
 Being able to build Docker images on your local machine (using [NUKE](http://www.nuke.build), see my [previous post](../build_using_nuke)) is nice, but still has some challenges. For example;
