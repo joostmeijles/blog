@@ -11,9 +11,10 @@ We decided to leverage the free (❣), for open source software, Azure Pipelines
 
 Being able to build Docker images on your local machine (using [NUKE](http://www.nuke.build), see my [previous post](../build_using_nuke)) is nice, but still has some challenges. For example;
 
--  input files need to be collected by every developer, which is error prone e.g. version differences might occur,
+- input files need to be collected by every developer, which is error prone e.g. version differences might occur,
 - with Docker for Windows the version of Docker that you use really matters, e.g. stability issues tend to come and go,
 - a build consumes lots of CPU and memory, basically making your PC unusable during a build (and Sitecore XP & XC builds take around 90 minutes)
+- automatically verifying that changes in a commit work
 
 All of above challenges can be solved by having an automated build.
 
