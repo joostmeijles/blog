@@ -5,6 +5,7 @@ tags = ["Docker", "XC9"]
 +++
 
 Starting Sitecore XC9 development can be pretty daunting task, especially when you have to configure an environment that does not fully match the pre-defined Sitecore Installation Framework (SIF) values. In this blog we use Docker to smoothen the configuration learning-curve, and show how a simple to run environment can help you during development.
+<!--more-->
 
 # Prerequisite: Docker images
 As prerequisite you need to have the Sitecore XC9 Docker images available, easiest way to achieve is by building it locally using NUKE (see the [README](https://github.com/avivasolutionsnl/sitecore-docker) and/or [my previous post](../build_using_nuke)), when you have Docker for Windows installed and all Sitecore files downloaded it boils down to performing:
