@@ -3,7 +3,7 @@ languageCode = "en"
 title = "Blog about Sitecore development"
 description = "My personal blog about Sitecore development"
 theme = "kiss"
-copyright = "&copy; <a href=\"https://github.com/joostmeijles/blog\">Joost Meijles</a> 2018"
+copyright = "&copy; <a href=\"https://github.com/joostmeijles/blog\">Joost Meijles</a> 2019"
 disqusShortname = ""
 googleAnalytics = "UA-124806744-1"
 # Number of posts per page
