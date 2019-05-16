@@ -8,7 +8,7 @@ Beginning of april it was time for the yearly Sitecore Usergroup meeting in Euro
 <!--more-->
 The conference started with a keynote by Donovan Brown, Principal Azure Devops manager at Microsoft.
 Donovan presented the possibilities and advantages of using DevOps by using a nice anology between DevOps and Formula One with respect to pitstop optimizations: http://donovanbrown.com/post/DevOps-before-and-after-F1-style
-DevOps is an interesting and applicable subject as Sitecore, especially since version 9.0, is more and more becoming a micro-service oriented architecture.
+DevOps is an interesting and applicable subject as Sitecore, especially since version 9.0, is more and more becoming a micro-service oriented architecture. So it was a very interesting SUGCON kick-off!
 
 ## Sitecore Commerce & JSS – Pramila Soni & Saurabh Sachdeva
 An introduction in the use of Sitecore Javascript Services (JSS) and Commerce was presented by Pramila Soni and Saurabe Sachdeva. 
@@ -30,6 +30,7 @@ Something that I, and Aviva Solutions, have been investing quite some time on an
 ## How to extend the Sitecore Commerce business tools - Erwin Werkman
 Erwin Werkman presented a detailed overview of how to modify and extend the Sitecore XC9 Business Tools (aka BizFx).
 Adding new properties to the Business Tools is quite straightforward, but only if you exactly know what to do! Exactly this aspect is really important when working with Sitecore XC9 and something that Erwin clearly explained.
+
 It gets more complicated when you want to extend the Business Tools, with e.g. custom buttons, and changes are needed in the BixFx AngularJS application. For this Erwin showed an approach which is documented in this Github repo: https://github.com/ewerkman/bizfx-extension
 To conclude, customizing the BizFx tools is possible, but when you need more customization it gets more complicated and less developer friendly.
 
