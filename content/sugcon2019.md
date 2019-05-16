@@ -25,7 +25,7 @@ Main roadblocks Sean found were;
 - How to build Docker images (Sitecore does not ship Docker images)?
 
 It was great to see that Sean his session attracted a room full op people. A good indication that there is large interest within the Sitecore community for Docker.
-Something that I, and Aviva Solutions, have been investing quite some time on and is publicly available on Github: https://github.com/avivasolutionsnl/sitecore-docker
+Something that I, and Aviva Solutions, have been investing quite some effort in and is publicly available on Github: https://github.com/avivasolutionsnl/sitecore-docker
 
 ## How to extend the Sitecore Commerce business tools - Erwin Werkman
 Erwin Werkman presented a detailed overview of how to modify and extend the Sitecore XC9 Business Tools (aka BizFx).
