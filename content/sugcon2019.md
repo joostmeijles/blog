@@ -2,6 +2,7 @@
 title = "SUGCON Europe 2019 - London 💂"
 date = "2019-04-08"
 tags = ["Sitecore"]
+canonical = "https://www.avivasolutions.nl/onze-verhalen/sugcon-2019-in-londen"
 +++
 
 Beginning of april it was time for the yearly Sitecore Usergroup meeting in Europe: SUGCON 2019. The venue location was this time the City of London.
