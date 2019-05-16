@@ -1,5 +1,5 @@
 +++
-title = "SUGCON Europe 2019 - London"
+title = "SUGCON Europe 2019 - London 💂"
 date = "2019-04-08"
 tags = ["Sitecore"]
 +++
