@@ -8,7 +8,7 @@ Beginning of april it was time for the yearly Sitecore Usergroup meeting in Euro
 <!--more-->
 The conference started with a keynote by Donovan Brown, Principal Azure Devops manager at Microsoft.
 Donovan presented the possibilities and advantages of using DevOps by using a nice anology between DevOps and Formula One with respect to pitstop optimizations: http://donovanbrown.com/post/DevOps-before-and-after-F1-style
-DevOps is an interesting and applicable subject as Sitecore, especially since version 9.0, is more and more becoming a micro-service oriented architecture. So it was a very interesting SUGCON kick-off!
+DevOps is an interesting and applicable subject as Sitecore, especially since version 9.0, is more and more becoming a micro-service oriented architecture. A very interesting SUGCON kick-off!
 
 ## Sitecore Commerce & JSS – Pramila Soni & Saurabh Sachdeva
 An introduction in the use of Sitecore Javascript Services (JSS) and Commerce was presented by Pramila Soni and Saurabe Sachdeva. 
