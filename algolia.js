@@ -9,7 +9,7 @@ exports.handler = function(event, context, callback) {
     const client = algoliasearch(algoliaApp, process.env.ALGOLIA_ADMIN_KEY);
     const index = client.initIndex(algoliaIndex);
 
-    const rawdata = fs.readFileSync(`${URL}/algolia.json`);  
+    const rawdata = fs.readFileSync(`${process.env.URL}/algolia.json`);  
     const json = JSON.parse(rawdata);
     
     index.addObjects(json, function(err, content) {
