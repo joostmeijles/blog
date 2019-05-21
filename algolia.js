@@ -1,6 +1,6 @@
 // Develop & build using netlify-lambda
 const algoliasearch = require('algoliasearch');
-const fetch = require('node-fetch');
+const axios = require('axios');
 
 const algoliaApp = '050Q9I7JU4';
 const algoliaIndex = 'joost.meijles.com';
@@ -9,7 +9,7 @@ exports.handler = function(event, context, callback) {
     const client = algoliasearch(algoliaApp, process.env.ALGOLIA_ADMIN_KEY);
     const index = client.initIndex(algoliaIndex);
 
-    fetch(`${process.env.URL}/algolia.json`)
+    axios.get(`${process.env.URL}/algolia.json`)
         .then(res => res.json())
         .then(json => {
             index.addObjects(json, function(err, content) {
