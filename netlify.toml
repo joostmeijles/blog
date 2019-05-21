@@ -1,6 +1,7 @@
 [build]
     publish = "publish"
     command = "hugo -b $URL"
+    functions = "functions/"
 
 [build.environment]
    HUGO_VERSION = "0.53"

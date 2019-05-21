@@ -31,7 +31,6 @@ pageID = ""
 page = "" # Twitter Page username. If not set, params.social.twitter will be used.
 
 [params.social]
-
 twitter = "joostmeijles"
 github = "joostmeijles"
 email = "joost@meijl.es"
@@ -43,11 +42,21 @@ codepen = ""
 [taxonomies]
 tag ="tags"
 
-[blackfriday]
-hrefTargetBlank = true
-
 # Adding this tag enables RSS feed
 [params.rss]
 includeContent = true # Includes whole content in rss
 authorName = "Joost Meijles"
 authorEmail = "joost@meijl.es"
+
+[outputFormats.Algolia]
+baseName = "algolia"
+isPlainText = true
+mediaType = "application/json"
+notAlternative = true
+
+[params.algolia]
+vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
+params = ["categories", "tags"]
+
+[outputs]
+home = ["HTML", "RSS", "Algolia"]
