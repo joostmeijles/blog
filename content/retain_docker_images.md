@@ -24,11 +24,16 @@ These are the ingredients:
 A NUKE target executes the process, it;
 
 1.	Gets all current GitHub releases from a specific directory
-Using the GitHub Releases API.
+
+    Using the [GitHub Releases API](https://developer.github.com/v3/repos/releases/#list-releases-for-a-repository).
+
 2.	Gets all current images in the corresponding ACR repositories
-Using the 'az acr repository show-tags' command
+
+    Using the [az acr repository show-tags](https://docs.microsoft.com/en-us/cli/azure/acr/repository?view=azure-cli-latest#az-acr-repository-show-tags) command
+
 3.	Deletes all images which do not have a corresponding GitHub release (anymore)
-Using the 'az acr repository delete' command
+
+    Using the [az acr repository delete](https://docs.microsoft.com/en-us/cli/azure/acr/repository?view=azure-cli-latest#az-acr-repository-delete) command
 
 The code for above steps can be found in [Build.RetentionPolicy.cs](https://github.com/avivasolutionsnl/sitecore-docker/blob/master/build/Build.RetentionPolicy.cs).
 
