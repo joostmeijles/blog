@@ -5,11 +5,11 @@ tags = ["Docker", "Azure"]
 +++
  
 Since a while we store Docker images in our Azure Container Registry (ACR). Everytime we tag a commit in git, an amount of 22 Docker images are automatically pushed to our registry (see [this article for details](../build_using_azuredevops)). Very easy indeed, but it also causes a forever growing registry. 
-While it's not a lot, it does cost money to store images in ACR; €0.003/GB/day.
+While it's not a lot, it does cost money to store images in ACR: €0.003/GB/day.
 <!--more-->
 We went looking for a way to save some costs on that and since we are developers, we're not going to delete images manually… It's got to be automatically!
  
-We could of course follow a naïve approach like deleting all images except the newest ones, but that's not what we wanted. Some people rely on older ones which is perfectly fine. 
+We could of course follow a naive approach like deleting all images except the newest ones, but that's not what we wanted. Some people rely on older ones which is perfectly fine. 
  
 We decided to keep our images in sync with the GitHub releases. Every GitHub release that is not needed anymore gets deleted, and the corresponding images are deleted from ACR.
  
@@ -22,6 +22,7 @@ These are the ingredients:
 - Azure CLI
  
 A NUKE target executes the process, it;
+
 1.	Gets all current GitHub releases from a specific directory
 Using the GitHub Releases API.
 2.	Gets all current images in the corresponding ACR repositories
