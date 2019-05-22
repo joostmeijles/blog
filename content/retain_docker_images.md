@@ -24,8 +24,8 @@ These are the ingredients:
 A NUKE target executes the process, it;
 
 1.	Gets all current GitHub releases from a specific directory
+    
     > Using the [GitHub Releases API](https://developer.github.com/v3/repos/releases/#list-releases-for-a-repository).
-
 
 1.	Gets all current images in the corresponding ACR repositories
 
