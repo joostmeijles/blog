@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "atomic-algolia": "^0.3.17",
+    "axios": "^0.18.0",
     "netlify": "^2.4.1",
     "netlify-lambda": "^1.4.11",
     "node-fetch": "^2.6.0"
