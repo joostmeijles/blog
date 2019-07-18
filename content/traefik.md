@@ -5,7 +5,7 @@ tags = ["Docker", "XC9"]
 +++
 
 Recently we upgraded to Sitecore XP 9.1.1 and XC 9.1.0. This is the first version of XC that uses XP 9.1.
-Version 9.1 introduces a system wide Identity service which was in 9.0 only used for Commerce. For the Sitecore CMS this changes means that for login you will be redirected to the Identity server, and upon successful login back to the request URL. 
+Version 9.1 introduces a system wide Identity service which was in 9.0 only used for Commerce. For the Sitecore CMS this change means that for login you will be redirected to the Identity server, and upon successful login redirected back to the request URL. 
 <!--more--> 
 
 For development we use a Docker setup which can be found [here](https://github.com/avivasolutionsnl/sitecore-docker). For testing purposes this Docker development setup is deployed to an (IAAS) Azure VM.
@@ -55,7 +55,7 @@ Each service gets its own DNS name following the `<service>.staging.dev` scheme.
     address = ":443"
 ```
 
-Next configure for each Docker service a number of labels in a `docker-compose.yml` file that configure the routing, e.g. for the Identity service:
+Next configure for each Docker service a number of labels in a `docker-compose.yml` file that configures the routing, e.g. for the Identity service:
 ```
 ...
 
@@ -73,4 +73,4 @@ That's all!
 
 ## Final note
 All of above is not (yet) necessary when you decide to run the Sitecore web service at port 80 (without TLS) and the Identity service at port 443.
-In this case you will have no overlapping port numbers. Drawback is of course that is not so secure and with the introduction of the next new web service you probably have to go with above approach...
+In this case you will have no overlapping port numbers. Drawback is of course that it is not so secure and with the introduction of the next new web service you probably have to go with above approach...
