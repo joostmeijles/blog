@@ -73,4 +73,4 @@ Now configure your DNS in Azure, you will need a domain name as the default `*.c
 
 ## Final note
 All of above is not (yet) necessary when you decide to run the Sitecore web service at port 80 (without TLS) and the Identity service at port 443.
-In this case you will have no overlapping port numbers. Drawback is of course that it is not so secure (but might be fine for development purposes) and with the introduction of the next new web service you probably have to go with above approach...
+In this case you will have no overlapping port numbers. Drawback is of course that it is not so secure (but might be fine for development purposes) and with the introduction of the next new web service you probably have to go with above approach.
