@@ -38,7 +38,7 @@ This introduces the challenge that HTTPS requests to `https://my.staging.dev/sit
 Solution is to place a reverse-proxy in between that routes requests to the correct web service. In addition the reverse proxy should route requests based on the container name and automatically configure when Docker containers are started.
 All these requirements are something [Traefik](https://traefik.io) is built for.
 
-With [Traefik v2](https://docs.traefik.io/v2.0/) it is even possible to route TLS traffic based on the SNI name. This feature is needed as with the current Sitecore Docker setup, based on the XP0 SIF installation, it is not easy to run without TLS (and e.g. use reverse-proxy TLS offloading).
+With [Traefik v2](https://docs.traefik.io/v2.0/) it is even possible to route TCP traffic with TLS, based on SNI name. This feature is needed as with the current Sitecore Docker setup, based on the XP0 SIF installation, it is not easy to run without TLS (and e.g. use reverse-proxy TLS offloading).
 
 So the desired situation is shown in below picture:
 
