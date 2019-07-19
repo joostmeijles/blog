@@ -12,9 +12,6 @@ enableRobotsTXT = true
 publishDir = "publish" # https://gohugo.io/hosting-and-deployment/hosting-on-github/
 image = "favicon.ico"
 
-[params.assets]
-customCSS = ["css/custom.css"]
-
 [params.info]
 adsense = "" # Adsense ID (ID only, without ca-pub-)
 enableSocial = true # Adds OpenGraph and Twitter cards
