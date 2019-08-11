@@ -2,8 +2,8 @@
   "dependencies": {
     "atomic-algolia": "^0.3.17",
     "encoding": "^0.1.12",
-    "netlify": "^2.4.1",
-    "netlify-lambda": "^1.4.11",
+    "netlify": "^2.4.8",
+    "netlify-lambda": "^1.5.1",
     "node-fetch": "^2.6.0"
   },
   "scripts": {
