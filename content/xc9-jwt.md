@@ -8,7 +8,7 @@ Sitecore XC9 uses JSON Web Tokens (JWTs) for authentication & authorization. JWT
 In this blog post we investigate how JWTs are configured and handled in the Sitecore Identity Server and Commerce Engine.
 <!--more--> 
 
-Jonne Kats gives in this [article](http://jonnekats.nl/2019/sitecore-commerce-security-explained/) a nice overview how authentication and authorization works in XC9.
+In this [article](http://jonnekats.nl/2019/sitecore-commerce-security-explained/) Jonne Kats gives a nice overview of how authentication and authorization works in XC9.
 The Bearer token authentication variant uses a token: a JSON Web Token (JWT).
 
 # Obtain and inspect JWT
