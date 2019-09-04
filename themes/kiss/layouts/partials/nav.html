@@ -2,7 +2,10 @@
   <div class="container">
     <nav class="nav">
       <div class="nav-left">
-        <a class="nav-item" href="{{ .Site.BaseURL }}"><h1 class="title is-4">{{ .Site.Title }}</h1></a>
+        <a class="nav-item" href="{{ .Site.BaseURL }}">
+          <img class="hvr-buzz-out" src="/android-chrome-192x192.png" />
+          <h1 class="title is-4">{{ .Site.Title }}</h1>
+        </a>
       </div>
       <div class="nav-right">
         <nav class="nav-item level is-mobile">
@@ -22,32 +25,6 @@
           </a>
         </nav>
       </div>
-    </nav>
-
-    <nav class="nav">
-      {{ if (isset .Site.Params "sections_left" ) }}
-        <div class="nav-left">
-          {{- range $section, $printable := .Site.Params.sections_left -}}
-            {{- if $printable -}}
-              <a class="nav-item" href="{{$section}}">
-                <h2 class="title is-5">{{$printable}}</h2>
-              </a>
-            {{- end -}}
-          {{- end -}}
-        </div>
-      {{ end }}
-
-      {{ if (isset .Site.Params "sections_right" ) }}
-        <div class="nav-right">
-          {{- range $section, $printable := .Site.Params.sections_right -}}
-            {{- if $printable -}}
-              <a class="nav-item" href="{{$section}}">
-                <h2 class="title is-5">{{$printable}}</h2>
-              </a>
-            {{- end -}}
-          {{- end -}}
-        </div>
-      {{ end }}
     </nav>
   </div>
 </section>
