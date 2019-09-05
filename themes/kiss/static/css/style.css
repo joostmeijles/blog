@@ -4321,6 +4321,9 @@ a.nav-item.is-tab.is-active {
   .nav-menu.is-active {
     display: block;
   }
+  .nav-left .title {
+    display: none;
+  }
 }
 .container > .nav > .nav-left > .nav-item:first-child:not(.is-tab),
 .nav > .container > .nav-left > .nav-item:first-child:not(.is-tab) {
