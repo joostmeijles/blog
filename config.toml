@@ -1,6 +1,6 @@
 # baseurl = "https://joostmeijles.github.io/blog"
 languageCode = "en"
-title = "... blogging about software development"
+title = "Joost Meijles"
 description = "My personal blog about software development"
 theme = "kiss"
 copyright = "&copy; <a href=\"https://github.com/joostmeijles/blog\">Joost Meijles</a> 2019"

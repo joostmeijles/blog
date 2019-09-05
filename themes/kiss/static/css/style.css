@@ -4244,6 +4244,12 @@ a.box:active {
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
+
+.nav-item .title {
+  font-family: 'Indie Flower', cursive;
+  font-size: 42px;
+}
+
 .nav-right img {
   max-height: 24px;
 }
