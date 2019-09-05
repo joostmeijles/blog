@@ -1,7 +1,7 @@
 # baseurl = "https://joostmeijles.github.io/blog"
 languageCode = "en"
-title = "Blog about Sitecore development"
-description = "My personal blog about Sitecore development"
+title = "Joost Meijles"
+description = "My personal blog about software development"
 theme = "kiss"
 copyright = "&copy; <a href=\"https://github.com/joostmeijles/blog\">Joost Meijles</a> 2019"
 disqusShortname = ""
@@ -15,7 +15,7 @@ image = "favicon.ico"
 [params.info]
 adsense = "" # Adsense ID (ID only, without ca-pub-)
 enableSocial = true # Adds OpenGraph and Twitter cards
-homeTitle = "Sitecore development by Joost Meijles" # Title for home page
+homeTitle = "Software development by Joost Meijles" # Title for home page
 poweredby = true # Adds powered by Hugo and Kiss below Copyright section
 related = true # Includes related articles
 

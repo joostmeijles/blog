@@ -4244,9 +4244,20 @@ a.box:active {
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
-.nav-item img {
+
+.nav-item .title {
+  font-family: 'Indie Flower', cursive;
+  font-size: 42px;
+}
+
+.nav-right img {
   max-height: 24px;
 }
+.nav-left img {
+  max-height: 76px;
+  padding-right: 10px;
+}
+
 .nav-item .button + .button {
   margin-left: 10px;
 }
@@ -4332,7 +4343,7 @@ a.nav-item.is-tab.is-active {
   flex-basis: 0;
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
-  flex-grow: 1;
+  flex-grow: 3;
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
@@ -4395,6 +4406,7 @@ a.panel-block:hover {
   display: flex;
   width: 100%;
 }
+
 .nav.has-shadow {
   box-shadow: 0 2px 3px rgba(17, 17, 17, 0.1);
 }
