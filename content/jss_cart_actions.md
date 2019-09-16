@@ -9,6 +9,7 @@ All cart actions follow the same design pattern. For simplicity this article pre
 <!--more-->
 
 The steps to create a add cart line component are:
+
 - Extend the API Gateway
 - Create a Javascript client API
 - Create a React Cart provider
@@ -16,19 +17,20 @@ The steps to create a add cart line component are:
 - Use it
 
 # Extend the Gateway
-As we are using an API Gateway , see [part 1](http://jonnekats.nl/2019/exposing-the-commerce-engine/) for details, the first step is to expose an `addline` endpoint.
-A custom endpoint is necessary to unpack and forward the Cart identifier that is packed inside the JWT.
+As we are using an API Gateway, see [part 1](http://jonnekats.nl/2019/exposing-the-commerce-engine/) for details, the first step is to expose an `addline` endpoint.
+This new endpoint will expose the Commerce Engine `api/AddCartLine()` functionality. In order to add a cart line we need to provide a Cart identifier. This identifier is packed in the JWT.
+So in the custom endpoint the Cart identifier is unpacked from the JWT and placed in the `api/AddCartLine()` request body.
 
-The code snippet to add a `addline` endpoint to the API Gateway is:
+The code snippet to add an `addline` endpoint to the API Gateway is:
 ```
 config.ReRoute("/carts/me/addline")
     .Method(HttpMethod.Put)
     .To("https://commerce:5000/api/AddCartLine()")
     .TransformBody((_, httpContext, bytes) => SetCartIdInBody(httpContext, bytes)) // Simple method that gets Cart Id from JWT and adds it to the body
     .Method(HttpMethod.Put)
-    .AuthenticateWith("test"); // JWT bearer authentication
+    .AuthenticateWith("<authenticationScheme>"); // JWT bearer authentication
 ```
-As you can see in above code, the only custom part is adding a Cart identifier to the body of the Commerce Engine request.
+
 
 # Create a Javascript client API
 Next we want to create a Javascript client API that conveniently, e.g. handling some config, exposes a function call to add a sellable item to a cart.
@@ -81,7 +83,7 @@ async function addCartLine(token, line) {
 ```
 
 # Create a React Cart provider
-In above code you probably noticed that in addition to a cart line a token needs to be provided.
+In the above code you probably noticed that in addition to a cart line a token needs to be provided.
 We want to retrieve this JWT token once and keep it in React state. Since React 16.8 there is a new way of handling state: using [React Hooks](https://reactjs.org/docs/hooks-reference.html).
 In short, React Hooks allows us to use state in functional components by providing a Context, `useState`, and `useEffect` API.
 
@@ -92,6 +94,7 @@ import React from 'react';
 
 export const AuthContext = React.createContext();
 ```
+> See [createContext](https://reactjs.org/docs/context.html#reactcreatecontext) for a full explanation on it.
 
 Next we will use this context in our own `AuthProvider` component. Inside this component we use an effect (which is called once upon mount) to retrieve the token from the API Gateway, and use state to store the retrieved token. To make the token available in context of child components we use a Context Provider that sets the token value.
 
@@ -120,6 +123,8 @@ export function AuthProvider({children}) {
     );
 }
 ```
+> See [useState](https://reactjs.org/docs/hooks-state.html) and [useEffect](https://reactjs.org/docs/hooks-effect.html) for a more detailed explanation.
+
 
 In order to make the token context available to all JSS components we add `AuthProvider` as wrapper in to the `AppRoot`.
 
@@ -176,7 +181,7 @@ export default function CartProvider({children}) {
 }
 ```
 The only notable changes are:
-- a map that exposes all Cart actions, and contains actions that e.g. refresh the cart after an update
+- an Javascript Object that holds all Cart actions, and contains actions that e.g. refresh the cart after an update
 - a token condition supplied to the `useEffect` which triggers a cart update when the `token` is refreshed
 
 
@@ -206,7 +211,7 @@ const AddToCartButton = ({productId, variantId, ...other}) => {
 ```
 
 # Use it
-Last step is to actually use the button, for example by placing it on the `ProductSummary` component which is used for displaying products on a product cluster.
+Last step is to actually use the button, for example by placing it on the `ProductSummary` React component which is used for displaying products on a product cluster.
 As all required information is readily available on the `ProductSummary` component, adding the button is easy:
 ```
 ...
@@ -226,8 +231,10 @@ Finally this results in having a button on the page, for example:
 
 ![](/jss_product_summary.png)
 
+Having a button that performs actions against the API Gateway and Commerce Engine obviously means that running in JSS disconnected is working, *but* only performs meaningful cart actions when the Gateway API and Commerce Engine are running. As the Commerce Engine requires a running Sitecore instance for its settings, this means that we actually need a fully running Sitecore XC setup for development. Which basically brings us to using JSS in integrated mode in practice.
+
 # Conclusion
 Creating a cart action component is, once the infrastructure components `request`, `AuthProvider` and `CartProvider` are in place, quick and easy!
 By directly connecting to the Commerce Engine we can use the Commerce Engine domain models in Javascript and do not have an additional Commerce Connect Entity layer to understand and maintain.
 For cart actions the only drawback is that we need to handle the Commerce Engine errors, which are not always user friendly, ourselves. 
-For this POC we did not bother with transforming Commerce Engine errors, but for production usage this will be necessary.
+For this POC we did not bother with transforming Commerce Engine errors, but for production usage this will be necessary. Last but not least, we need a running Sitecore XC setup for developing cart actions although JSS disconnected mode remains useful for client-side only development.
