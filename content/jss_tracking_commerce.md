@@ -52,7 +52,7 @@ As use-case we want to track a *Lines Added To Cart* event. This event is normal
 
 There are globally 3 places where we could plugin to track an event:
 
-- Commerce Connect pipeline
+- Commerce Connect pipeline <a id="option-1"></a>
 - Commerce Connect processor
 - IPageContext in Analytics Tracking
 
@@ -168,4 +168,4 @@ After adding two lines to the cart and visiting `/sitecore/api/jss/track/flush` 
 
 # Conclusion
 With limited effort we have implemented JSS based tracking for a single Commerce event.
-This works pretty well from a JSS point of view. The challenge lies in connecting all line add/remove/update events but also all *Abandon Cart*, *Added To Cart Stock Status*, etc. events. We basically have to replicate the Commerce Connect pipelines in track event processors. This implies that for a full fledged implementation we probably best go for option #1 (from [here](#Hooking up Commerce events)): re-using and calling a Commerce Connect pipeline.
+This works pretty well from a JSS point of view. The challenge lies in connecting all line add/remove/update events but also all *Abandon Cart*, *Added To Cart Stock Status*, etc. events. We basically have to replicate the Commerce Connect pipelines in track event processors. This implies that for a full fledged implementation we probably best go for option #1 (from [here](#option-1)): re-using and calling a Commerce Connect pipeline.
