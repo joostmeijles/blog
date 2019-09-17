@@ -5709,6 +5709,20 @@ code {
 .content li table {
   margin-bottom: 1.5em;
 }
+
+.summary ol:not(:last-child),
+.summary p:not(:last-child),
+.summary pre:not(:last-child),
+.summary table:not(:last-child),
+.summary ul:not(:last-child) {
+  margin-bottom: 0em;
+}
+
+.summary .button {
+  padding-left: 0em;
+  padding-right: 0em;
+}
+
 img[src$="#c"] {
   display: block;
   margin: 0.7rem auto;

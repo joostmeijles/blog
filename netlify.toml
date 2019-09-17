@@ -7,4 +7,4 @@
    HUGO_VERSION = "0.57.2"
 
 [context.deploy-preview]
-    command = "hugo -b $DEPLOY_URL"
+    command = "hugo -b $DEPLOY_URL -F"
