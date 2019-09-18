@@ -65,8 +65,8 @@ Second option is to run a single Commerce Connect processor e.g. the `TriggerCar
 
 The third option is to run an existing Commerce Connect pipeline e.g. `commerce.carts.addCartLines`. A Commerce Connect pipeline contains all required actions and analytics tracking for adding a cart line. As described in [part 3](./jss_cart_actions.md), we perform actions from the client. In order to make this option work, we would remove all non-analytics processors from the pipeline.
 
-At first we tried hooking into the Analytics Tracking API as this is closest to the JSS implementation. This works, but it meant quite some reverse engineering (e.g. to determine which cart & cart-line properties are used) of the Commerce Connect and Analytics processors.
-Reverse engineering was more difficult than excepted, and makes it error prone and hard to maintain (besides that its time consuming, even for a single processor), so we decided to abandon this approach.
+At first we tried hooking into the Analytics Tracking API as this is closest to the JSS implementation. This works, but it meant quite some reverse engineering of the Commerce Connect and Analytics processors.
+We had to determine which cart & cart-line properties were used in several Commerce Connect & Analytics processors, this makes it error prone and hard to maintain, so we decided to abandon this approach.
 
 Leaves us with the decision between plugging in at Commerce Connect pipeline or processor.
 We decided to go for the processor as its interface is the same as the pipeline, and applying it for one processor would give us a impression of what it takes to implement for the complete pipeline.
