@@ -5,8 +5,10 @@ tags = ["XC9", "JSS"]
 +++
 
 In [part 3](./jss_cart_actions.md) of our JSS and Commerce series we have been adding cart actions. It would be great if we could track these using Sitecore Experience Analytics.
-This article presents how we achieved tracking a *Lines Added To Cart* event using JSS, and describe the pros and cons of the chosen approach.
+This article presents how we achieved tracking a *Lines Added To Cart* event using JSS, and describes the pros and cons of the chosen approach.
 <!--more-->
+
+Remember that we decided to use Commerce Engine directly and thus have to add Analytics ourselves instead of the *normal* approach where the Commerce Connect layer handles analytics.
 
 JSS ships with a tracking API that is pretty well described [here](https://jss.sitecore.com/docs/fundamentals/services/tracking).
 To get started with JSS tracking, we enabled JSS tracking and [tracking of anonymous contacts](https://doc.sitecore.net/developers/xp/xconnect/xconnect-search-indexer/enable-anonymous-contact-indexing.html).
@@ -47,23 +49,23 @@ trackingApi
 ```
 
 # Hooking up Commerce events
-Now that we have basic event tracking setup, it's time to hook up a Commerce event.
+Now that we have basic event tracking set up, it's time to hook up a Commerce event.
 As use-case we want to track a *Lines Added To Cart* event. This event is normally triggered by Commerce Connect using the `TriggerCartLinesPageEvent` processor in the `commerce.carts.addCartLines` pipeline.
 
-There are globally 3 places where we could plugin to track an event:
+There are globally 3 places where we could plug in to track an event:
 
-- Commerce Connect pipeline <a id="option-1"></a>
-- Commerce Connect processor
 - IPageContext in Analytics Tracking
+- Commerce Connect processor
+- Commerce Connect pipeline <a id="option-3"></a>
 
-First option is to plug in at a Commerce Connect pipeline e.g. `commerce.carts.addCartLines`. This pipeline contains all required actions for adding a cart line, and thus includes the add action for a cart line on the Commerce Engine. This step we do, as described in [part 3](./jss_cart_actions.md), from the client. We could however patch pipeline and remove the unwanted processors.
+The first option is to hook in at the Sitecore Analytics Tracking API, this means calling the `Register` on the `IPageContext` interface.
+Internally the `TriggerCartLinesPageEvent` processor and JSS track event processors (like `TrackEvent`) use this.
 
 Second option is to run a single Commerce Connect processor e.g. the `TriggerCartLinesPageEvent` processor.
 
-The last option is to hook in at the Sitecore Analytics Tracking API, this means calling the `Register` on the `IPageContext` interface.
-Internally the `TriggerCartLinesPageEvent` processor and JSS track event processors (like `TrackEvent`) use this.
+The third option is to run an existing Commerce Connect pipeline e.g. `commerce.carts.addCartLines`. A Commerce Connect pipeline contains all required actions and analytics tracking for adding a cart line. As described in [part 3](./jss_cart_actions.md), we perform actions from the client. In order to make this option work, we would remove all non-analytics processors from the pipeline.
 
-At first we tried hooking into the Analytics Tracking API as this is closest to the JSS implementation. This works, but it meant quite some reverse engineering of the Commerce Connect processor. 
+At first we tried hooking into the Analytics Tracking API as this is closest to the JSS implementation. This works, but it meant quite some reverse engineering (e.g. to determine which cart & cart-line properties are used) of the Commerce Connect and Analytics processors.
 Reverse engineering was more difficult than excepted, and makes it error prone and hard to maintain (besides that its time consuming, even for a single processor), so we decided to abandon this approach.
 
 Leaves us with the decision between plugging in at Commerce Connect pipeline or processor.
@@ -168,4 +170,4 @@ After adding two lines to the cart and visiting `/sitecore/api/jss/track/flush` 
 
 # Conclusion
 With limited effort we have implemented JSS based tracking for a single Commerce event.
-This works pretty well from a JSS point of view. The challenge lies in connecting all line add/remove/update events but also all *Abandon Cart*, *Added To Cart Stock Status*, etc. events. We basically have to replicate the Commerce Connect pipelines in track event processors. This implies that for a full fledged implementation we probably best go for option #1 (from [here](#option-1)): re-using and calling a Commerce Connect pipeline.
+This works pretty well from a JSS point of view. The challenge lies in connecting all line add/remove/update events but also all *Abandon Cart*, *Added To Cart Stock Status*, etc. events. We basically have to replicate the Commerce Connect pipelines in track event processors. This implies that for a full fledged implementation we probably best go for option #3 (from [here](#option-3)): re-using and calling a Commerce Connect pipeline.
