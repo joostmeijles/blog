@@ -4,7 +4,7 @@ date = "2019-09-19"
 tags = ["XC9", "JSS"]
 +++
 
-In [part 3](./jss_cart_actions.md) of our JSS and Commerce series we have been adding cart actions. It would be great if we could track these using Sitecore Experience Analytics.
+In [part 3](./jss_cart_actions) of our JSS and Commerce series we have been adding cart actions. It would be great if we could track these using Sitecore Experience Analytics.
 This article presents how we achieved tracking a *Lines Added To Cart* event using JSS, and describes the pros and cons of the chosen approach.
 <!--more-->
 
