@@ -8,6 +8,11 @@ Now that we have a catalog available (see [part 2](http://jonnekats.nl/2019/navi
 All cart actions follow the same design pattern. For simplicity this article presents only how to *add* a sellable item to a cart.
 <!--more-->
 
+> Previous JSS Commerce parts:
+>
+> - [part 1 - Exposing the Commerce Engine](http://jonnekats.nl/2019/exposing-the-commerce-engine/)
+> - [part 2 - Navigating the catalog](http://jonnekats.nl/2019/navigating-the-catalog/)
+
 The steps to create a add cart line component are:
 
 - Extend the API Gateway
