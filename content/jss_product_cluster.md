@@ -4,7 +4,7 @@ date = "2019-09-23"
 tags = ["XC9", "JSS"]
 +++
 
-[Part 5](http://jonnekats.nl/2019/implement-catalog-pages/)) describes how to create a dynamic product page. This is great for navigating the catalog, but does a content editor not allow to display selected products on (e.g.) a landing page. This part presents how to create a product cluster component that enables displaying a configured set of products.
+[Part 5](http://jonnekats.nl/2019/implement-catalog-pages/)) describes how to create a dynamic product page. This is great for navigating the catalog, but does not allow a content editor to select products to display on (e.g.) a landing page. This part presents how to create a product cluster component that enables displaying a configured set of products.
 <!--more-->
 
 Let's first create a `ProductCluster` React JSS component;
