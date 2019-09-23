@@ -130,6 +130,6 @@ public class ProductsContentResolver : RenderingContentsResolver
 
 After configuring the `ProductsContentResolver` as content resolver for the `ProductCluster` component and placing the `ProductCluster` on the home page, the product selection is show on the home page:
 
-![](/jss_product_cluster_querybuilder.png)
+![](/jss_product_cluster_homepage.png)
 
 Conclusion: the reusability of React components in combination with the configurability of JSS really shines for this use-case!
