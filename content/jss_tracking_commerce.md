@@ -8,11 +8,15 @@ In [part 3]({{< ref "jss_cart_actions" >}}) of our JSS and Commerce series we ha
 This article presents how we achieved tracking a *Lines Added To Cart* event using JSS, and describes the pros and cons of the chosen approach.
 <!--more-->
 
-> Previous JSS Commerce parts:
+> JSS Commerce parts:
 >
 > - [part 1 - Exposing the Commerce Engine](http://jonnekats.nl/2019/exposing-the-commerce-engine/)
 > - [part 2 - Navigating the catalog](http://jonnekats.nl/2019/navigating-the-catalog/)
 > - [part 3 - Cart actions]({{< ref "jss_cart_actions" >}})
+> - **[part 4 - Tracking Cart events]({{< ref "jss_tracking_commerce" >}})**
+> - [part 5 - Implementing catalog pages](http://jonnekats.nl/2019/implement-catalog-pages/)
+> - [part 6 - Creating a product cluster]({{< ref "jss_product_cluster" >}})
+> - [part 7 - Conclusion](http://jonnekats.nl/2019/jss-commerce-conclusion/)
 
 
 Remember that we decided to use Commerce Engine directly and thus have to add Analytics ourselves instead of the *normal* approach where the Commerce Connect layer handles analytics.
