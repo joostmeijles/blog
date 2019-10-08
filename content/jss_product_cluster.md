@@ -7,13 +7,15 @@ tags = ["XC9", "JSS"]
 [Part 5](http://jonnekats.nl/2019/implement-catalog-pages/) describes how to create a dynamic product page. This is great for navigating the catalog, but does not allow a content editor to select products to display on (e.g.) a landing page. This part presents how to create a product cluster component that enables displaying a configured set of products.
 <!--more-->
 
-> Previous JSS Commerce parts:
+> JSS Commerce parts:
 >
 > - [part 1 - Exposing the Commerce Engine](http://jonnekats.nl/2019/exposing-the-commerce-engine/)
 > - [part 2 - Navigating the catalog](http://jonnekats.nl/2019/navigating-the-catalog/)
 > - [part 3 - Cart actions]({{< ref "jss_cart_actions" >}})
 > - [part 4 - Tracking Cart events]({{< ref "jss_tracking_commerce" >}})
 > - [part 5 - Implementing catalog pages](http://jonnekats.nl/2019/implement-catalog-pages/)
+> - **[part 6 - Creating a product cluster]({{< ref "jss_product_cluster" >}})**
+> - [part 7 - Conclusion](http://jonnekats.nl/2019/jss-commerce-conclusion/)
 
 Let's first create a `ProductCluster` React JSS component;
 ```
