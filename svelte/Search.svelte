@@ -8,6 +8,10 @@ let index;
 let query = '';
 let hits = [];
 
+import { createEventDispatcher } from 'svelte';
+
+	const dispatch = createEventDispatcher();
+
 onMount(() => {
 	searchClient = algoliasearch(
 		'050Q9I7JU4',
@@ -35,17 +39,21 @@ async function search() {
 </script>
 
 <style>
+	input {
+		border-style: none none solid none;
+		border-color: blue;
+		width: 60%;
+		margin-bottom: 1em;
+	}
+	input:focus {
+		outline: none;
+	}
 	:global(em) {
 		font-weight: bold;
 	}
-	section {
-		border: 1px solid black;
-	}
 </style>
 
-<div>
-	<input type="text" bind:value={query} on:keyup={search}>
-</div>
+<input type="text" placeholder="Type to search..." bind:value={query} on:keyup={(search)} />
 <section>
 {#each hits as hit}
 	<article>

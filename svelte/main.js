@@ -1,4 +1,4 @@
-import Search from './Search.svelte';
+import Search from './SearchModal.svelte';
 
 const app = new Search({
 	target: document.querySelector('div.search')
