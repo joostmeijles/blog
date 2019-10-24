@@ -9,11 +9,12 @@
     button, button:focus, button:hover {
         border: none;
         background: none;
+        padding: 0px;
     }
 
     img {
-        height: 64px;
-        width: 64px;
+        height: 24px;
+        width: 24px;
         padding: 0px;
         margin: 0px;
     }
