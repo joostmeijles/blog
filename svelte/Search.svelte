@@ -25,6 +25,15 @@ onMount(() => {
 });
 
 // Fires on each keyup in form
+async function handle(key) {
+    if (key.keyCode == 27) {
+        dispatch("close");
+        return;
+    }
+
+    search();
+}
+
 async function search() {
     if (query == '') {
         hits = [];
@@ -35,6 +44,10 @@ async function search() {
         facetFilters: [ 'kind:page' ]
     });
     hits = result.hits;
+}
+
+function init(element) {
+    element.focus();
 }
 </script>
 
@@ -53,7 +66,7 @@ async function search() {
     }
 </style>
 
-<input type="text" placeholder="Type to search..." bind:value={query} on:keyup={(search)} />
+<input type="text" placeholder="Type to search..." bind:value={query} on:keyup={(k) => handle(k)} use:init />
 <section>
 {#each hits as hit}
     <article>

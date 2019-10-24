@@ -9,6 +9,7 @@
       </div>
       <div class="nav-right">
         <nav class="nav-item level is-mobile">
+          <div class="search"></div>
           {{- range $platform, $username := .Site.Params.social -}}
           {{- if $username -}}
             <a class="level-item" aria-label="{{ $platform }}" href='{{ print ( index $.Site.Data.theme.social.base $platform ) $username }}' target='_blank' rel='noopener'>
@@ -26,6 +27,5 @@
         </nav>
       </div>
     </nav>
-    <div class="search" />
   </div>
 </section>

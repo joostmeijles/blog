@@ -35,9 +35,9 @@
     }
 </style>
 
-<div class='modal-background' on:click='{() => dispatch("close")}' />
+<div class='modal-background' on:click={() => dispatch("close")} />
 
 <div class='modal'>
-    <button on:click='{() => dispatch("close")}'>X</button>
+    <button on:click={() => dispatch("close")}>X</button>
     <slot></slot>
 </div>
