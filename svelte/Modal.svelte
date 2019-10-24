@@ -25,6 +25,7 @@
         border-radius: 0.2em;
         background: white;
         z-index: 10;
+        float: left;
     }
 
     button {

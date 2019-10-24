@@ -4133,7 +4133,7 @@ a.box:active {
   flex-grow: 1;
 }
 
-.nav-item .title {
+.nav-item > .title {
   font-family: 'Indie Flower', cursive;
   font-size: 42px;
 }

@@ -67,7 +67,7 @@ function init(element) {
 </style>
 
 <input type="text" placeholder="Type to search..." bind:value={query} on:keyup={(k) => handle(k)} use:init />
-<section>
+<section class="section">
 {#each hits as hit}
     <article>
         <h1 class="title">
