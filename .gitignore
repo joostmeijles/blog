@@ -1,2 +1,5 @@
 publish/
 node_modules/
+.DS_Store
+static/css/svelte*
+static/js/svelte*
