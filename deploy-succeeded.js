@@ -18,9 +18,7 @@ exports.handler = async (event, context, callback) => {
     await index.clearIndex();
 
     // Add documents to Algolia
-    foreach (doc in data) {
-        await index.addObject(doc);
-    }
+    await index.addObjects(data);
     
     return {
         statusCode: 200,
