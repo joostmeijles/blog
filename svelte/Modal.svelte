@@ -25,7 +25,7 @@
         border-radius: 0.2em;
         background: white;
         z-index: 10;
-        float: left;
+        text-align: left;
     }
 
     button {

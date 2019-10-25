@@ -1,5 +1,5 @@
 <script>
-import { onMount } from 'svelte';
+import { onMount, createEventDispatcher } from 'svelte';
 import algoliasearch from 'algoliasearch/lite';
 
 let searchClient;
@@ -7,8 +7,6 @@ let index;
 
 let query = '';
 let hits = [];
-
-import { createEventDispatcher } from 'svelte';
 
 const dispatch = createEventDispatcher();
 
@@ -21,7 +19,7 @@ onMount(() => {
     index = searchClient.initIndex('joost.meijles.com');
 
     // Warm up search
-    index.search({ query }).then(console.log);
+    index.search({ query });
 });
 
 // Fires on each keyup in form
@@ -40,9 +38,13 @@ async function search() {
         return;
     }
 
-    const result = await index.search({ query, 
-        facetFilters: [ 'kind:page' ]
+    const result = await index.search({ 
+        query, 
+        facetFilters: [ 'kind:page' ],
+        highlightPreTag: '<mark>',
+        highlightPostTag: '</mark>'
     });
+    
     hits = result.hits;
 }
 
@@ -54,20 +56,20 @@ function init(element) {
 <style>
     input {
         border-style: none none solid none;
-        border-color: blue;
+        border-color: #2077b2;
         width: 60%;
         margin-bottom: 1em;
     }
     input:focus {
         outline: none;
     }
-    :global(em) {
-        font-weight: bold;
+    :global(mark) {
+        background-color: yellow;
     }
 </style>
 
 <input type="text" placeholder="Type to search..." bind:value={query} on:keyup={(k) => handle(k)} use:init />
-<section class="section">
+<section>
 {#each hits as hit}
     <article>
         <h1 class="title">
@@ -77,9 +79,6 @@ function init(element) {
             <p contenteditable bind:innerHTML={hit._highlightResult.summary.value}></p>
             <a class="button is-link" href={hit.permalink} >
                 Read more
-                <span class="icon is-small">
-                    <i class="fa fa-angle-double-right"></i>
-                </span>
             </a>
         </div>
     </article>
