@@ -15,11 +15,15 @@ exports.handler = async (event, context, callback) => {
     const client = algoliasearch(algoliaApp, process.env.ALGOLIA_ADMIN_KEY);
     const index = client.initIndex(algoliaIndex);
 
-    // Add documents to Algolia
-    const res = await index.addObjects(data);
+    await index.clearIndex();
 
+    // Add documents to Algolia
+    foreach (doc in data) {
+        await index.addObject(doc);
+    }
+    
     return {
         statusCode: 200,
-        body: `Completed task ${res.taskID}`
+        body: `Completed task`
     };
 }
