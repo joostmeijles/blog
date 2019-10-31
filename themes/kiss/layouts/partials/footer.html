@@ -13,4 +13,11 @@
 {{ template "_internal/google_analytics_async.html" . }}
 {{ end }}
 </body>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/serviceworker.js');
+  });
+}
+</script>
 </html>

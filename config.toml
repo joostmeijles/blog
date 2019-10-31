@@ -51,9 +51,15 @@ isPlainText = true
 mediaType = "application/json"
 notAlternative = true
 
+[outputFormats.Serviceworker]
+baseName = "serviceworker"
+isPlainText = true
+mediaType = "application/javascript"
+notAlternative = true
+
 [params.algolia]
 vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink", "content"]
 params = ["categories", "tags"]
 
 [outputs]
-home = ["HTML", "RSS", "Algolia"]
+home = ["HTML", "RSS", "Algolia", "Serviceworker"]
