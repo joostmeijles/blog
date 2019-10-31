@@ -55,7 +55,7 @@ notAlternative = true
 [outputFormats.Serviceworker]
 baseName = "serviceworker"
 isPlainText = true
-mediaType = "application/json"
+mediaType = "application/javascript"
 notAlternative = true
 
 [params.algolia]

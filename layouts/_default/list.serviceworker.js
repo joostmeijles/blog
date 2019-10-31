@@ -1,19 +1,23 @@
-'use strict';
-
-const CACHE_NAME = 'v1.0.0'; //generate uniqueid
-
-const FILES_TO_CACHE = [
-    '/index.html',
-    'jss_product_cluster/index.html'
+const version = "{{ if $.GitInfo }} {{ .GitInfo.Hash }} {{ else }} {{ .Lastmod }} {{ end }}";
+    
+const pages = [
+    {{ $list := .Pages -}}
+    {{ $length := (len $list) -}}
+    {{ range $index, $element := $list -}}
+        "{{ .Permalink }}"{{ if ne (add $index 1) $length }},{{ end }}
+    {{ end -}}
 ];
+
+const home = "/";
 
 self.addEventListener('install', (evt) => {
     console.log('[ServiceWorker] Install');
     
     evt.waitUntil(
-        caches.open(CACHE_NAME).then((cache) => {
-          console.log('[ServiceWorker] Pre-caching offline page');
-          return cache.addAll(FILES_TO_CACHE);
+        caches.open(sitemap.version).then((cache) => {
+          console.log('[ServiceWorker] Pre-caching offline pages');
+          console.log(sitemap.pages);
+          return cache.addAll(sitemap.pages);
         })
     );
 
@@ -26,7 +30,7 @@ self.addEventListener('activate', (evt) => {
     evt.waitUntil(
         caches.keys().then((keyList) => {
           return Promise.all(keyList.map((key) => {
-            if (key !== CACHE_NAME) {
+            if (key !== sitemap.version) {
               console.log('[ServiceWorker] Removing old cache', key);
               return caches.delete(key);
             }
@@ -48,10 +52,10 @@ self.addEventListener('fetch', (evt) => {
     evt.respondWith(
         fetch(evt.request)
             .catch(() => {
-            return caches.open(CACHE_NAME)
+            return caches.open(sitemap.version)
                 .then((cache) => {
                     // Fallback to cached index
-                    return cache.match('index.html');
+                    return cache.match(home);
                 });
             })
     );
