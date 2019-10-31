@@ -1,5 +1,5 @@
-const version = "{{ if $.GitInfo }} {{ .GitInfo.Hash }} {{ else }} {{ .Lastmod }} {{ end }}";
-    
+const version = "{{ getenv "COMMIT_REF" }}";
+
 const pages = [
     {{ $list := .Pages -}}
     {{ $length := (len $list) -}}
