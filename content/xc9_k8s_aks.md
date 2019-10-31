@@ -94,8 +94,8 @@ The movie below recaps the steps above and shows some basic commands to inspect 
 {{< youtube tZUqtDLOSs8 >}}
 
 # Deploy Solr to AKS
-Now that we have an empty AKS cluster up and running, lets see what is takes to deploy a single service.
-We choose Solr as use-case as its a backend service with no dependent services, it requires some persistent storage (which is later required by more services), and it does not require any special configuration (e.g. runs HTTP out-of-the-box).
+Now that we have an empty AKS cluster up and running, lets see what it takes to deploy a single service.
+We choose Solr as use-case as its a backend service with no dependent services. It requires some persistent storage, which is later required by more services. And it does not require any special configuration (e.g. runs HTTP out-of-the-box).
 
 The Kubernetes YAML spec [file](https://github.com/joostmeijles/xc9-k8s/blob/master/xc9/solr.yaml) for Solr looks as follows:
 ```
@@ -185,7 +185,7 @@ The *Deployment* part defines which Docker image to use (it uses the XC Solr Doc
 
 Next the *PersistentVolumeClaim* describes to allocate 5 Gi of of Azure `managed-premium` storage.
 
-There is a *Service* spec that abstracts the Solr Deployment into a network service. A *Service* is for example enables load-balancing over multiple Pods.
+There is a *Service* spec that abstracts the Solr Deployment into a network service. A *Service* for example enables load-balancing over multiple Pods.
 
 Finally there is an *Ingress* spec that defines to use Nginx as Ingress controller, auto-generate SSL certificates and perform SSL-offloading, use `solr.xc9-k8s.rocks` as DNS name (and configure this automatically as Ingress route), finally it maps incoming HTTP requests to the service named `solr` on port `8983`.
 
