@@ -4,7 +4,7 @@ const pages = [
     {{ $list := .Pages -}}
     {{ $length := (len $list) -}}
     {{ range $index, $element := $list -}}
-        "{{ .Permalink }}"{{ if ne (add $index 1) $length }},{{ end }}
+        "{{ .RelPermalink }}"{{ if ne (add $index 1) $length }},{{ end }}
     {{ end -}}
 ];
 
