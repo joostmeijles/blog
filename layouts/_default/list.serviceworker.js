@@ -11,13 +11,9 @@ const pages = [
 const home = "/";
 
 self.addEventListener('install', (evt) => {
-    console.log('[ServiceWorker] Install');
-    
     evt.waitUntil(
-        caches.open(sitemap.version).then((cache) => {
-          console.log('[ServiceWorker] Pre-caching offline pages');
-          console.log(sitemap.pages);
-          return cache.addAll(sitemap.pages);
+        caches.open(version).then((cache) => {
+          return cache.addAll(pages);
         })
     );
 
@@ -25,13 +21,10 @@ self.addEventListener('install', (evt) => {
 });
 
 self.addEventListener('activate', (evt) => {
-    console.log('[ServiceWorker] Activate');
-    
     evt.waitUntil(
         caches.keys().then((keyList) => {
           return Promise.all(keyList.map((key) => {
-            if (key !== sitemap.version) {
-              console.log('[ServiceWorker] Removing old cache', key);
+            if (key !== version) {
               return caches.delete(key);
             }
           }));
@@ -42,8 +35,6 @@ self.addEventListener('activate', (evt) => {
 });
 
 self.addEventListener('fetch', (evt) => {
-    console.log('[ServiceWorker] Fetch', evt.request.url);
-    
     if (evt.request.mode !== 'navigate') {
         // Not a page navigation, bail.
         return;
@@ -52,7 +43,7 @@ self.addEventListener('fetch', (evt) => {
     evt.respondWith(
         fetch(evt.request)
             .catch(() => {
-            return caches.open(sitemap.version)
+            return caches.open(version)
                 .then((cache) => {
                     // Fallback to cached index
                     return cache.match(home);
