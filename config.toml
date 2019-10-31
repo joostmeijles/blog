@@ -11,6 +11,7 @@ Paginate = 5
 enableRobotsTXT = true
 publishDir = "publish" # https://gohugo.io/hosting-and-deployment/hosting-on-github/
 image = "favicon.ico"
+enableGitInfo = true
 
 [params.info]
 adsense = "" # Adsense ID (ID only, without ca-pub-)
@@ -51,9 +52,15 @@ isPlainText = true
 mediaType = "application/json"
 notAlternative = true
 
+[outputFormats.Serviceworker]
+baseName = "serviceworker"
+isPlainText = true
+mediaType = "application/json"
+notAlternative = true
+
 [params.algolia]
 vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink", "content"]
 params = ["categories", "tags"]
 
 [outputs]
-home = ["HTML", "RSS", "Algolia"]
+home = ["HTML", "RSS", "Algolia", "Serviceworker"]

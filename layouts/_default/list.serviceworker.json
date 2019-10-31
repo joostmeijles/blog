@@ -1,0 +1,12 @@
+{{ $list := .Pages -}}
+{{ $length := (len $list) -}}
+{
+    "version" : "{{ if $.GitInfo }} {{ .GitInfo.Hash }} {{ else }} {{ .Lastmod }} {{ end }}",
+    "pages" : [
+        "/",
+        {{ range $index, $element := $list -}}
+            "{{ .Permalink }}"{{ if ne (add $index 1) $length }},{{ end }}
+        {{ end -}}
+    ],
+    "home": "/"
+}
