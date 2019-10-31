@@ -87,7 +87,7 @@ After installing the Azure CLI tooling;
     ```
 
 That's basically all to get a hybrid AKS cluster up and running! 
-More detailed steps, e.g. how to connect ACR to your cluster are are described [here](https://github.com/joostmeijles/xc9-k8s/blob/master/k8s/README.md).
+More detailed steps, e.g. how to connect ACR to your cluster, are described [here](https://github.com/joostmeijles/xc9-k8s/blob/master/k8s/README.md).
 
 The movie below recaps the steps above and shows some basic commands to inspect your cluster.
 
@@ -176,6 +176,7 @@ spec:
 ```
 
 As you can see it consists of 4 parts;
+
 - Deployment
 - PersistentVolumeClaim
 - Service
@@ -183,11 +184,11 @@ As you can see it consists of 4 parts;
 
 The *Deployment* part defines which Docker image to use (it uses the XC Solr Docker image from the Aviva ACR) and that this Pod should run on a Windows node, and it mounts persistent volume into the `/Data` path.
 
-Next the *PersistentVolumeClaim* describes to allocate 5 Gi of of Azure `managed-premium` storage.
+Next the *PersistentVolumeClaim* describes to allocate 5 Gi of Azure `managed-premium` storage.
 
 There is a *Service* spec that abstracts the Solr Deployment into a network service. A *Service* for example enables load-balancing over multiple Pods.
 
-Finally there is an *Ingress* spec that defines to use Nginx as Ingress controller, auto-generate SSL certificates and perform SSL-offloading, use `solr.xc9-k8s.rocks` as DNS name (and configure this automatically as Ingress route), finally it maps incoming HTTP requests to the service named `solr` on port `8983`.
+Finally there is an *Ingress* spec that defines to use Nginx as Ingress controller, auto-generates SSL certificates and perform SSL-offloading, uses `solr.xc9-k8s.rocks` as DNS name (and configure this automatically as Ingress route), and finally it maps incoming HTTP requests to the service named `solr` on port `8983`.
 
 The desired stated described in the K8S YAML spec can be applied as follows:
 ```
@@ -238,7 +239,7 @@ Now that we a secret available we can mount it into the Sitecore, Identity, and 
                 secretName: sitecore-license
 ```
 
-Find all spec files [here](https://github.com/joostmeijles/xc9-k8s/blob/master/xc9/).
+You can find all spec files [here](https://github.com/joostmeijles/xc9-k8s/blob/master/xc9/).
 
 Now everything is set up to, apply all XC 9.1 spec files (located in the `xc9` directory) in once:
 ```
@@ -259,13 +260,13 @@ Once all Pods are up and running e.g. navigate to https://www.xc9-k8s.rocks to v
 
 A fully detailed description of what to configure can be found [here](https://github.com/joostmeijles/xc9-k8s/blob/master/xc9/README.md).
 
-Want a visual impression of how it all works? Watch the following movie...
+Want a visual impression of how it all works? Watch the following movie..
 
 {{< youtube YBYQvZKGqEo >}}
 
 # Scale
 Till now we have seen how to create a cluster, deploy a service, provision storage, and configure a secret.
-This all works pretty smooth with Kubernetes, but the real power of Kubernetes is best shown by its scaling features. Kubernetes allows you to horizontally scale the number of Nodes or Pods.
+This all works pretty smooth with Kubernetes, but the real power of K8S is best shown by its scaling features. Kubernetes allows you to horizontally scale the number of Nodes or Pods.
 
 In this example we will look at how to use the Horizontal Pod Autoscaler (hpa) to scale the number of Commerce Pods.
 We plan to scale the number of Commerce Pods from 1 to 3 depending on the CPU load.
@@ -312,7 +313,7 @@ We will use the [Mercury demo webshop](https://github.com/avivasolutionsnl/mercu
 
 > [Mercury](https://mercury-ecommerce.com/) is a Sitecore Commerce accelerator.
 
-Lets spin up the Mercury Demo webshop:
+Lets spin up the Mercury Demo webshop (find all K8S files for it [here](https://github.com/joostmeijles/xc9-k8s/tree/master/scale)):
 ```
 PS> kubectl apply -f ./scale
 ```
