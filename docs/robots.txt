@@ -1,3 +1,0 @@
-User-agent: *
-
-Sitemap: https://joostmeijles.github.io/blog/sitemap.xml
