@@ -17,7 +17,7 @@ const Title = ({ slug, title }) => {
     return h
   }
 
-  return (<Link href={`/${slug}`}>
+  return (<Link href="/[slug]" as={`/${slug}`}>
     <a>
       {h}
     </a>

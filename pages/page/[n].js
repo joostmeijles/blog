@@ -6,8 +6,8 @@ import Layout from '../../components/Layout'
 export default ({ articles, prevPage, nextPage }) => (
   <Layout>
     {articles.map((md, i) => <Excerpt key={i} md={md}/>)}
-    {prevPage ? <Link href={`/page/${prevPage}`}><a>Prev</a></Link> : <Link href={'/'}><a>Prev</a></Link>}
-    {nextPage !== undefined && <Link href={`/page/${nextPage}`}><a>Next</a></Link>}
+    {prevPage ? <Link href="/page/[n]" as={`/page/${prevPage}`}><a>Prev</a></Link> : <Link href={'/'}><a>Prev</a></Link>}
+    {nextPage !== undefined && <Link href="/page/[n]" as={`/page/${nextPage}`}><a>Next</a></Link>}
   </Layout>
 )
 
