@@ -1,12 +1,12 @@
-+++
-title = "JWTs in Sitecore XC9 🔐"
-date = "2019-08-13"
-tags = ["Identity", "XC9"]
-+++
+---
+title: "JWTs in Sitecore XC9 🔐"
+date: "2019-08-13"
+tags: ["Identity", "XC9"]
+---
 
 Sitecore XC9 uses JSON Web Tokens (JWTs) for authentication & authorization. JWTs are well explained [here](https://jwt.io/introduction/).
 In this blog post we investigate how JWTs are configured and handled in the Sitecore Identity Server and Commerce Engine.
-<!--more--> 
+<!--more-->
 
 In this [article](http://jonnekats.nl/2019/sitecore-commerce-security-explained/) Jonne Kats gives a nice overview of how authentication and authorization works in XC9.
 The Bearer token authentication variant uses a token: a JSON Web Token (JWT).

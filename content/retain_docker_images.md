@@ -1,8 +1,8 @@
-+++
-title = "Automatically save money by removing obsolete images from ACR 💰"
-date = "2019-05-22"
-tags = ["Docker", "Azure"]
-+++
+---
+title: "Automatically save money by removing obsolete images from ACR 💰"
+date: "2019-05-22"
+tags: ["Docker", "Azure"]
+---
  
 Since a while we store Docker images in our Azure Container Registry (ACR). Everytime we tag a commit in git, an amount of 22 Docker images are automatically pushed to our registry (see [this article for details](../build_using_azuredevops)). Very easy indeed, but it also causes a forever growing registry. 
 While it's not a lot, it does cost money to store images in ACR: €0.003/GB/day.

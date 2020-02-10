@@ -1,8 +1,8 @@
-+++
-title = "Speed up Sitecore 9 start"
-date = "2018-09-25"
-tags = ["Sitecore 9"]
-+++
+---
+title: "Speed up Sitecore 9 start"
+date: "2018-09-25"
+tags: ["Sitecore9"]
+---
 
 Sitecore 9 can be slow to start, which is especially annoying during development.
 Below are some configuration tweaks to speed it up.

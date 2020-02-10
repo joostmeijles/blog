@@ -1,8 +1,8 @@
-+++
-title = "XC9 + K8S + AKS = Bingo?! 🌟"
-date = "2019-11-06"
-tags = ["Docker", "Azure", "XC9"]
-+++
+---
+title: "XC9 + K8S + AKS = Bingo?! 🌟"
+date: "2019-11-06"
+tags: ["Docker", "Azure", "XC9"]
+---
 
 Sitecore 9 is moving towards a micro-service based architecture and is designed with the cloud in mind. The community has picked this development up by creating Docker images for Sitecore. This works great for local development, but it still has some challenges when deploying to the cloud. This changed with the recent introduction of Windows support for Kubernetes (K8S) and Azure Kubernetes Service (AKS) support for Windows containers. 
 

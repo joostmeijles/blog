@@ -1,8 +1,8 @@
-+++
-title = "Build Docker images using Azure Pipelines 🚀"
-date = "2019-04-15"
-tags = ["Docker", "Azure"]
-+++
+---
+title: "Build Docker images using Azure Pipelines 🚀"
+date: "2019-04-15"
+tags: ["Docker", "Azure"]
+---
 
 Looking to automate your Sitecore Docker image build? 
 

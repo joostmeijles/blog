@@ -1,8 +1,8 @@
-+++
-title = "JSS Commerce part 3 - Cart actions 🤸"
-date = "2019-09-18"
-tags = ["XC9", "JSS"]
-+++
+---
+title: "JSS Commerce part 3 - Cart actions 🤸"
+date: "2019-09-18"
+tags: ["XC9", "JSS"]
+---
 
 Now that we have a catalog available (see [part 2](http://jonnekats.nl/2019/navigating-the-catalog/)) the next step is to add some cart actions: e.g. add and remove sellable items to/from a cart.
 All cart actions follow the same design pattern. For simplicity this article presents only how to *add* a sellable item to a cart.

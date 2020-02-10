@@ -1,8 +1,8 @@
-+++
-title = "Speed up the Catalog Import process"
-date = "2018-09-24"
-tags = ["XC9"]
-+++
+---
+title: "Speed up the Catalog Import process"
+date: "2018-09-24"
+tags: ["XC9"]
+---
 
 The performance of the current Catalog import in XC9 update-2 is not so good. This article gives a few tips on how to speed up the import process.
 After applying these optimizations, importing a sellable item costs about 15 msec.
