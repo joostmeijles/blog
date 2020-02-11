@@ -11,7 +11,7 @@ const Older = ({ nextPage }) => (
   </Link>
 )
 
-export default ({ articles, nextPage }) => ( 
+export default ({ articles, nextPage }) => (
   <Layout>
     {articles.map((md, i) => <Excerpt key={i} md={md}/>)}
     {nextPage !== undefined && <Older nextPage={nextPage}/>}
