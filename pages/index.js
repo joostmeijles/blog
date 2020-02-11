@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 
 const Older = ({ nextPage }) => (
   <Link href="/page/[n]" as={`/page/${nextPage}`}>
-    <a className="self-center font-sans text-sm font-hairline box-border border-2 mt-5 p-1 rounded-lg hover:bg-gray-100">
+    <a className="self-center btn-nav">
       Older &gt;
     </a>
   </Link>

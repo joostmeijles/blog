@@ -1,3 +1,10 @@
+.btn-nav {
+    @apply font-sans text-sm font-hairline box-border border-2 mt-5 ml-1 mr-1 p-1 rounded-lg;
+}
+.btn-nav:hover {
+    @apply bg-gray-100;
+}
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
