@@ -7,10 +7,10 @@ export default ({ md }) => {
   return (<div className="flex flex-col mb-5 mt-5">
     <ArticleHeader date={date} tags={tags} title={title} slug={slug} />
     <Link href="/[slug]" as={`/${slug}`}>
-      <p className="cursor-pointer">{md.excerpt}</p>
+      <p className="font-sans font-light cursor-pointer">{md.excerpt}</p>
     </Link>
     <Link href="/[slug]" as={`/${slug}`}>
-      <a className="underline p-2 rounded-lg hover:bg-gray-200 self-end">Read more</a>
+      <a className="font-sans font-light underline p-2 rounded-lg hover:bg-gray-200 self-end">Read more</a>
     </Link>
   </div>)
 }
