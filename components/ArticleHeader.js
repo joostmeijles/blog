@@ -4,8 +4,10 @@ import Tags from './Tags'
 
 export default ({ tags, date, title, slug }) => (
   <div className="flex flex-col">
-    <Tags tags={tags} className="self-end" />
-    <h2 className="font-sans text-sm text-gray-600 font-hairline">{moment(date).format('MMMM DD, YYYY')}</h2>
+    <div className="flex flex-row justify-between">
+      <h2 className="font-sans text-sm text-gray-600 font-hairline">{moment(date).format('MMMM DD, YYYY')}</h2>
+      <Tags tags={tags} />
+    </div>
     <Title slug={slug} title={title} />
   </div>
 )

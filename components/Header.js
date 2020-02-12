@@ -4,13 +4,13 @@ import { MdSearch } from 'react-icons/md'
 import Link from 'next/link'
 
 export default () => {
-  return <div className="grid grid-cols-2">
+  return <div className="flex flex-row justify-between">
     <div className="flex flex-row items-center justify-start mb-8 mt-8">
       <Link href="/">
         <img className="w-20 cursor-pointer" src="/android-chrome-192x192.webp"/>
       </Link>
       <Link href="/">
-        <a className="font-indie text-5xl">Joost Meijles</a>
+        <a className="invisible md:visible font-indie text-5xl">Joost Meijles</a>
       </Link>
     </div>
     <div className="flex flex-row items-center justify-end">
