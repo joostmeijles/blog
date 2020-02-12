@@ -1,5 +1,4 @@
 import matter from 'gray-matter'
-import moment from 'moment'
 import { readFileSync } from 'fs'
 import glob from 'glob'
 
@@ -35,7 +34,7 @@ export function getArticles(from = 0, to = 5, compare = defaultCompare, tags = u
 
   return glob.sync('content/**/*.md')
     .map(getArticleFromFile)
-    .sort((a, b) => compare(moment(a.data.date), moment(b.data.date)))
+    .sort((a, b) => compare(Date.parse(a.data.date), Date.parse(b.data.date)))
     .slice(from, to)
     .filter(article => !tags || articleHasTag(article, tags))
 }
