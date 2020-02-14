@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Markdown from 'react-markdown'
 import ArticleHeader from './ArticleHeader'
 
@@ -12,24 +12,22 @@ export default ({ date, title, tags, canonical, content }) => {
   </>)
 }
 
-const Utterances = () => {
-  useEffect(() => {
+class Utterances extends React.Component {
+  componentDidMount() {
     const script = document.createElement('script')
 
     script.src = 'https://utteranc.es/client.js'
+    script.async = true
     script.setAttribute('repo', 'joostmeijles/blog')
     script.setAttribute('issue-term', 'url')
     script.label = 'comment'
     script.setAttribute('theme', 'github-light')
     script.setAttribute('crossorigin', 'anonymous')
-    script.async = true
 
-    document.body.appendChild(script)
+    this.instance.appendChild(script)
+  }
 
-    return () => {
-      document.body.removeChild(script)
-    }
-  }, [])
-
-  return <div></div>
+  render() {
+    return <div ref={el => (this.instance = el)} />
+  }
 }
