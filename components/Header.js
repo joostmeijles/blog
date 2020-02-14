@@ -7,7 +7,7 @@ export default () => {
   return <div className="flex flex-row justify-between">
     <div className="flex flex-row items-center justify-start mb-8 mt-8">
       <Link href="/">
-        <img className="w-20 cursor-pointer" src="/android-chrome-192x192.webp"/>
+        <img className="w-20 cursor-pointer" src={require('../public/android-chrome-192x192.png')}/>
       </Link>
       <Link href="/">
         <a className="invisible md:visible font-indie text-5xl">Joost Meijles</a>
