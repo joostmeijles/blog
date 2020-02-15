@@ -14,9 +14,9 @@ export default () => {
       </Link>
     </div>
     <div className="flex flex-row items-center justify-end">
-      <Icon href="/">
+      {/* <Icon href="/">
         <MdSearch/>
-      </Icon>
+      </Icon> */}
       <Icon href="mailto:joost@meijl.es">
         <FiMail/>
       </Icon>
