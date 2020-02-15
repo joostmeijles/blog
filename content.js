@@ -35,6 +35,7 @@ export function getArticles(from = 0, to = 5, compare = defaultCompare, tags = u
   return glob.sync('content/**/*.md')
     .map(getArticleFromFile)
     .sort((a, b) => compare(Date.parse(a.data.date), Date.parse(b.data.date)))
+    .filter(a => process.env.NODE_ENV !== 'production' || a.data.date < Date.now()) // Only published articles
     .slice(from, to)
     .filter(article => !tags || articleHasTag(article, tags))
 }
