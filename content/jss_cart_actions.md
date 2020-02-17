@@ -1,8 +1,8 @@
-+++
-title = "JSS Commerce part 3 - Cart actions 🤸"
-date = "2019-09-18"
-tags = ["XC9", "JSS"]
-+++
+---
+title: "JSS Commerce part 3 - Cart actions 🤸"
+date: "2019-09-18"
+tags: ["XC9", "JSS"]
+---
 
 Now that we have a catalog available (see [part 2](http://jonnekats.nl/2019/navigating-the-catalog/)) the next step is to add some cart actions: e.g. add and remove sellable items to/from a cart.
 All cart actions follow the same design pattern. For simplicity this article presents only how to *add* a sellable item to a cart.
@@ -12,10 +12,10 @@ All cart actions follow the same design pattern. For simplicity this article pre
 >
 > - [part 1 - Exposing the Commerce Engine](http://jonnekats.nl/2019/exposing-the-commerce-engine/)
 > - [part 2 - Navigating the catalog](http://jonnekats.nl/2019/navigating-the-catalog/)
-> - **[part 3 - Cart actions]({{< ref "jss_cart_actions" >}})**
-> - [part 4 - Tracking Cart events]({{< ref "jss_tracking_commerce" >}})
+> - **[part 3 - Cart actions](/jss_cart_actions)**
+> - [part 4 - Tracking Cart events](/jss_tracking_commerce)
 > - [part 5 - Implementing catalog pages](http://jonnekats.nl/2019/implement-catalog-pages/)
-> - [part 6 - Creating a product cluster]({{< ref "jss_product_cluster" >}})
+> - [part 6 - Creating a product cluster](/jss_product_cluster)
 > - [part 7 - Conclusion](http://jonnekats.nl/2019/jss-commerce-conclusion/)
 
 The steps to create a add cart line component are:

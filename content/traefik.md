@@ -1,8 +1,8 @@
-+++
-title = "Routing XC 9.1 services using Traefik 🚦"
-date = "2019-07-15"
-tags = ["Docker", "XC9"]
-+++
+---
+title: "Routing XC 9.1 services using Traefik 🚦"
+date: "2019-07-15"
+tags: ["Docker", "XC9"]
+---
 
 Recently we upgraded to Sitecore XP 9.1.1 and XC 9.1.0. This is the first version of XC that uses XP 9.1.
 Version 9.1 introduces a system wide Identity service which was in 9.0 only used for Commerce. For the Sitecore CMS this change means that for login you will be redirected to the Identity server, and upon successful login redirected back to the request URL. 

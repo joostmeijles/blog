@@ -1,8 +1,8 @@
-+++
-title = "Building Docker images using NUKE 🏗"
-date = "2019-04-12"
-tags = ["Docker"]
-+++
+---
+title: "Building Docker images using NUKE 🏗"
+date: "2019-04-12"
+tags: ["Docker"]
+---
 
 Building a single Docker image is straightforward, building multiple Docker images is slightly more difficult, but building multiple Docker images that depend on eachother is a daunting task. The latter is where a good build system can really help you.
 <!--more-->

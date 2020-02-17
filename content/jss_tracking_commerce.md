@@ -1,10 +1,10 @@
-+++
-title = "JSS Commerce part 4 - Tracking Cart events 🛤️"
-date = "2019-09-19"
-tags = ["XC9", "JSS"]
-+++
+---
+title: "JSS Commerce part 4 - Tracking Cart events 🛤️"
+date: "2019-09-19"
+tags: ["XC9", "JSS"]
+---
 
-In [part 3]({{< ref "jss_cart_actions" >}}) of our JSS and Commerce series we have been adding cart actions. It would be great if we could track these using Sitecore Experience Analytics.
+In [part 3](/jss_cart_actions) of our JSS and Commerce series we have been adding cart actions. It would be great if we could track these using Sitecore Experience Analytics.
 This article presents how we achieved tracking a *Lines Added To Cart* event using JSS, and describes the pros and cons of the chosen approach.
 <!--more-->
 
@@ -12,10 +12,10 @@ This article presents how we achieved tracking a *Lines Added To Cart* event usi
 >
 > - [part 1 - Exposing the Commerce Engine](http://jonnekats.nl/2019/exposing-the-commerce-engine/)
 > - [part 2 - Navigating the catalog](http://jonnekats.nl/2019/navigating-the-catalog/)
-> - [part 3 - Cart actions]({{< ref "jss_cart_actions" >}})
-> - **[part 4 - Tracking Cart events]({{< ref "jss_tracking_commerce" >}})**
+> - [part 3 - Cart actions](/jss_cart_actions)
+> - **[part 4 - Tracking Cart events](/jss_tracking_commerce)**
 > - [part 5 - Implementing catalog pages](http://jonnekats.nl/2019/implement-catalog-pages/)
-> - [part 6 - Creating a product cluster]({{< ref "jss_product_cluster" >}})
+> - [part 6 - Creating a product cluster](/jss_product_cluster)
 > - [part 7 - Conclusion](http://jonnekats.nl/2019/jss-commerce-conclusion/)
 
 

@@ -1,0 +1,59 @@
+/* purgecss start ignore */
+.btn-nav {
+    @apply font-sans text-sm font-hairline box-border border-2 mt-5 ml-1 mr-1 p-1 rounded-lg;
+}
+.btn-nav:hover {
+    @apply bg-gray-100;
+}
+
+.article {
+    @apply break-words;
+}
+
+.article p {
+    @apply font-sans font-light text-justify mb-5;
+}
+
+.article a {
+    @apply text-blue-400 underline;
+}
+.article a:hover {
+    @apply text-blue-600 underline;
+}
+
+.article h1,h2 {
+    @apply font-sans text-xl font-thin mt-10 mb-2;
+}
+
+.article h3,h4 {
+    @apply font-sans text-lg font-thin mt-10 mb-2;
+}
+
+.article ul {
+    @apply list-disc ml-10 mb-5;
+}
+
+.article ol {
+    @apply list-decimal ml-10 mb-5;
+}
+
+.article li {
+    @apply font-sans font-light;
+}
+
+.article blockquote {
+    @apply p-0 p-2 mx-6 bg-gray-100 mb-4 border-l-4 border-gray-400;
+}
+
+.article code {
+    @apply box-border text-sm font-light bg-gray-100 border-solid border-gray-400 p-1 rounded-sm;
+}
+
+.article pre code {
+    @apply block text-sm bg-gray-100 p-4 rounded mb-5 mt-5 overflow-scroll;
+}
+/* purgecss end ignore */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";

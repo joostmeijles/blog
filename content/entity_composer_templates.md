@@ -1,9 +1,9 @@
-+++
-title = "Programmatically adding Entity Composer templates"
-date = "2018-08-29"
-tags = ["XC9"]
-canonical = "https://mercury-ecommerce.com/resources/how-to-import-entity-composer-templates"
-+++
+---
+title: "Programmatically adding Entity Composer templates"
+date: "2018-08-29"
+tags: ["XC9"]
+canonical: "https://mercury-ecommerce.com/resources/how-to-import-entity-composer-templates"
+---
 
 The XC9 Entity Composer functionality is introduced in update-2, and this [article](https://community.sitecore.net/technical_blogs/b/technical-marketing/posts/experience-commerce-entity-composer) describes the concept and explains how to add Entity Composer templates using the Business Tools.
 
