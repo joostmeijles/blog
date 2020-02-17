@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
-
+import Router from 'next/router'
+import { initGA, logPageView } from '../lib/analytics'
 import '../tailwind.css'
 import 'typeface-indie-flower'
 
 export default function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    initGA()
+    logPageView()
+    Router.events.on('routeChangeComplete', logPageView)
+  }, [])
+
   return <>
     <Head>
       <meta charSet="utf-8" />
