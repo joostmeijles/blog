@@ -8,6 +8,15 @@
         "cache-control": "public, max-age=43200, immutable",
         "Service-Worker-Allowed": "/"
       }
+    },
+    {
+      "src": "/(.*)",
+      "headers" : {
+        "Content-Security-Policy": "default-src 'self'; frame-src 'self' https://utteranc.es; script-src 'self' https://utteranc.es; style-src 'self' https://utteranc.es 'unsafe-inline'",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block"
+      }
     }
   ]
 }
