@@ -16,6 +16,7 @@ export default function MyApp({ Component, pageProps }) {
     <Head>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
+      <meta name="description" content="Software Development by Joost Meijles"/>
       <meta name="twitter:card" content="summary" key="twitter:card"/>
       <meta name="twitter:site" content="@joostmeijles" key="twitter:site"/>
       <meta name="twitter:creator" content="@joostmeijles" key="twitter:creator"/>
