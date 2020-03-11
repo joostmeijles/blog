@@ -19,7 +19,7 @@ export default ({ articles, nextPage }) => (
 )
 
 // eslint-disable-next-line camelcase
-export async function unstable_getStaticProps({ params }) {
+export async function getStaticProps({ params }) {
   const slugs = getSlugs()
   const articles = slugs.map(getArticleFromSlug)
 

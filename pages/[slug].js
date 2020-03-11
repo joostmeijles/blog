@@ -29,16 +29,20 @@ export default ({ article }) => {
   </>
 }
 
-export async function unstable_getStaticProps({ params }) {
+export async function getStaticProps({ params }) {
   const article = getArticleFromSlug(params.slug)
-  //TODO: similar articles
   return { props: { article } }
 }
 
-export async function unstable_getStaticPaths() {
+export async function getStaticPaths() {
   const slugs = getSlugs(0, -1)
 
-  return slugs.map(slug => {
+  const paths = slugs.map(slug => {
     return { params: { slug } }
   })
+
+  return {
+    paths,
+    fallback: false
+  }
 }

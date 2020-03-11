@@ -21,7 +21,7 @@ export default ({ articles, prevPage, nextPage }) => (
   </Layout>
 )
 
-export async function unstable_getStaticProps({ params }) {
+export async function getStaticProps({ params }) {
   const pageNum = parseInt(params.n)
   const pageFrom = pageNum * pageSize
   const articles = getArticles(pageFrom, pageFrom + pageSize)
@@ -33,7 +33,7 @@ export async function unstable_getStaticProps({ params }) {
   return { props: { articles, prevPage, nextPage } }
 }
 
-export async function unstable_getStaticPaths() {
+export async function getStaticPaths() {
   const numPages = getNumPages()
 
   const paths = []
@@ -41,5 +41,8 @@ export async function unstable_getStaticPaths() {
     paths.push({ params: { n: `${i}` } })
   }
 
-  return paths
+  return {
+    paths,
+    fallback: false
+  }
 }

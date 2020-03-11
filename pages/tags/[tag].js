@@ -8,11 +8,16 @@ export default ({ articles }) => (
   </Layout>
 )
 
-export async function unstable_getStaticProps({ params }) {
+export async function getStaticProps({ params }) {
   const articles = getArticles(0, -1, defaultCompare, [params.tag])
   return { props: { articles } }
 }
 
-export async function unstable_getStaticPaths() {
-  return getAllTags().map(tag => { return { params: { tag } } })
+export async function getStaticPaths() {
+  const paths = getAllTags().map(tag => { return { params: { tag } } })
+
+  return {
+    paths,
+    fallback: false
+  }
 }
