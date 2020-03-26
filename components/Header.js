@@ -1,6 +1,6 @@
 import { FaStrava } from 'react-icons/fa'
 import { FiGithub, FiLinkedin, FiMail, FiTwitter } from 'react-icons/fi'
-import { MdSearch } from 'react-icons/md'
+// import { MdSearch } from 'react-icons/md'
 import Link from 'next/link'
 
 export default () => {
