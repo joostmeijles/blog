@@ -1,3 +1,3 @@
-![](https://github.com/joostmeijles/blog/workflows/ci/badge.svg)
+![](https://github.com/joostmeijles/blog/workflows/CI/badge.svg)
 
 My personal blog about Software development.
