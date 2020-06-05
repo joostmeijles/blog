@@ -11,7 +11,7 @@ But Rider has improved and [now](https://www.jetbrains.com/help/rider/SSH_Remote
 
 The usual way of installing OpenSSH for Windows, as described [here](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse), does not work for Windows containers.
 
-Therefore you will need to install SSH manually. To save you from figuring that out how to do that, I created the following Powershell script:
+Therefore you will need to install SSH manually. To save you from figuring out how to do that, I created the following Powershell script:
 ```
 # Only install when sshd service is not available
 if (-Not (Get-Service sshd -ErrorAction SilentlyContinue))
@@ -44,7 +44,6 @@ if (-Not (Get-Service sshd -ErrorAction SilentlyContinue))
 Start-Service sshd
 ```
 Find the Github Gist for it [here](https://gist.github.com/joostmeijles/7ec1cb7e7117bcb19e032fb5377d2e01).
-
 Download the script and save it to your working directory.
 
 Now mount the `run-ssh.ps1` script into your container and modify the entrypoint for your Windows container in your `docker-compose.yml` file, e.g:
@@ -66,6 +65,6 @@ After you have started the container, SSH will now be automatically started and 
 
 > Username is `debug` and leave the `password` empty (this is only safe for development purposes of course!).
 
-Now you can attach to the Remote Host using the Rider menu: `Run > Attach To Remote Process`
+Now you can attach the debugger to the remote host using the Rider menu: `Run > Attach To Remote Process`
 
 That's all, enjoy the ride!
