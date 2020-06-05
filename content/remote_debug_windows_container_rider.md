@@ -4,7 +4,7 @@ date: "2020-06-05"
 tags: ["Docker"]
 ---
 
-For a while I have been wanting to use [Jetbrains Rider](https://www.jetbrains.com/rider/) instead of Visual Studio, but the lack of remote debugging possibilities for Windows container processes stopped me from doing so.
+For a while I have been wanting to use [JetBrains Rider](https://www.jetbrains.com/rider/) instead of Visual Studio, but the lack of remote debugging possibilities for Windows container processes stopped me from doing so.
 <!--more-->
 
 But Rider has improved and [now](https://www.jetbrains.com/help/rider/SSH_Remote_Debugging.html) supports .NET and .NET Core remote debugging using SSH. SSH is a first class citizen for Linux containers but unfortunately not (yet) for Windows containers.
