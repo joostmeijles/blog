@@ -12,7 +12,38 @@ But Rider has improved and [now](https://www.jetbrains.com/help/rider/SSH_Remote
 The usual way of installing OpenSSH for Windows, as described [here](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse), does not work for Windows containers.
 
 Therefore you will need to install SSH manually. To save you from figuring that out how to do that, I created the following Powershell script:
-<script src="https://gist.github.com/joostmeijles/7ec1cb7e7117bcb19e032fb5377d2e01.js"></script>
+```
+# Only install when sshd service is not available
+if (-Not (Get-Service sshd -ErrorAction SilentlyContinue))
+{
+    # Install choco
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+    # Install SSH
+    choco install openssh --yes
+
+    # Install SSH server
+    &"C:\Program Files\OpenSSH-Win64\install-sshd.ps1"
+
+    # Start SSH service
+    Set-Service sshd -StartupType Automatic
+    Start-Service sshd
+
+    # Enable password authentication
+    # For local usage ONLY we enable empty passwords
+    $FilePath = "$env:PROGRAMDATA\ssh\sshd_config"
+    (Get-Content $FilePath).Replace('#PasswordAuthentication yes','PasswordAuthentication yes').Replace('#PermitEmptyPasswords no', 'PermitEmptyPasswords yes') | Set-Content $FilePath
+
+    Restart-Service sshd
+
+    # Add user
+    net user debug /add
+    net localgroup administrators debug /add
+}
+
+Start-Service sshd
+```
+Find the Github Gist for it [here](https://gist.github.com/joostmeijles/7ec1cb7e7117bcb19e032fb5377d2e01).
 
 Download the script and save it to your working directory.
 
