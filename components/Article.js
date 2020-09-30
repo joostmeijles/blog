@@ -32,4 +32,4 @@ class Utterances extends React.Component {
   }
 }
 
-export default Article;
+export default Article

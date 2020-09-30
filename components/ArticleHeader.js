@@ -27,9 +27,9 @@ const ArticleHeader = ({ tags, date, title, slug }) => {
     </div>
     <Title slug={slug} title={title} />
   </div>)
-};
+}
 
-export default ArticleHeader;
+export default ArticleHeader
 
 const Title = ({ slug, title }) => {
   const h = <h1 className="font-sans text-2xl font-thin hover:underline">{title}</h1>

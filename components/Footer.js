@@ -7,6 +7,6 @@ const Footer = () => <div className="flex flex-col items-center mb-8 mt-8">
       alt="Buy Me a Coffee at ko-fi.com" />
   </a>
   <p className="font-sans text-xs font-thin">© <a href="https://github.com/joostmeijles/blog">Joost Meijles</a> 2019</p>
-</div>;
+</div>
 
-export default Footer;
+export default Footer

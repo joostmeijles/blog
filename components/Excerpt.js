@@ -14,6 +14,6 @@ const Excerpt = ({ md }) => {
       <a className="font-sans font-light underline p-2 rounded-lg hover:bg-gray-200 self-end">Read more</a>
     </Link>
   </div>)
-};
+}
 
-export default Excerpt;
+export default Excerpt

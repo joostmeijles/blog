@@ -29,7 +29,7 @@ export async function getStaticProps({ params }) {
   const numPages = getNumPages()
   const prevPage = pageNum > 0 ? pageNum - 1 : null
   const nextPage = pageNum === (numPages - 1) ? null : pageNum + 1
-  
+
   return { props: { articles, prevPage, nextPage } }
 }
 

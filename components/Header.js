@@ -36,9 +36,9 @@ const Header = () => {
       </Icon>
     </div>
   </div>
-};
+}
 
-export default Header;
+export default Header
 
 const Icon = ({ href, name, children }) => (
   <a href={href} aria-label={name} target="_blank" rel="noopener noreferrer" className="p-2 transform scale-150">
