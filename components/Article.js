@@ -1,12 +1,12 @@
 import React from 'react'
-import Markdown from 'react-markdown'
+import Markdown from 'react-markdown/with-html'
 import ArticleHeader from './ArticleHeader'
 
 export default ({ date, title, tags, canonical, content }) => {
   return (<>
     {/* canonical */}
     <ArticleHeader date={date} title={title} tags={tags} />
-    <Markdown source={content} className="article" />
+    <Markdown source={content} escapeHtml={false} className="article" />
     {/* <SimilarArticles/> */}
     <Utterances/>
   </>)
