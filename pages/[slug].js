@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 
 const mkAbsUrl = (path) => `https://joost.meijles.com/${path}`
 
-export default ({ article }) => {
+const Slug = ({ article }) => {
   const title = `${article.data.title} - Joost Meijles`
 
   return <>
@@ -28,6 +28,8 @@ export default ({ article }) => {
     </Layout>
   </>
 }
+
+export default Slug
 
 export async function getStaticProps({ params }) {
   const article = getArticleFromSlug(params.slug)
