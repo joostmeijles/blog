@@ -2,7 +2,7 @@ import Markdown from 'react-markdown'
 import Link from 'next/link'
 import ArticleHeader from './ArticleHeader'
 
-export default ({ md }) => {
+const Excerpt = ({ md }) => {
   const { tags, date, title, slug } = md.data
 
   return (<div className="flex flex-col mb-5 mt-5">
@@ -15,3 +15,5 @@ export default ({ md }) => {
     </Link>
   </div>)
 }
+
+export default Excerpt

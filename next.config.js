@@ -7,7 +7,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const withOffline = require('next-offline')
 
 module.exports = withOffline(withOptimizedImages(withBundleAnalyzer({
-  exportTrailingSlash: true,
+  trailingSlash: true,
   exportPathMap: async function() {
     const routes = {
       '/': { page: '/' }

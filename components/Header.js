@@ -3,7 +3,7 @@ import { FiGithub, FiLinkedin, FiMail, FiTwitter } from 'react-icons/fi'
 // import { MdSearch } from 'react-icons/md'
 import Link from 'next/link'
 
-export default () => {
+const Header = () => {
   return <div className="flex flex-row justify-between">
     <div className="flex flex-row items-center justify-start mb-8 mt-8">
       <Link href="/">
@@ -37,6 +37,8 @@ export default () => {
     </div>
   </div>
 }
+
+export default Header
 
 const Icon = ({ href, name, children }) => (
   <a href={href} aria-label={name} target="_blank" rel="noopener noreferrer" className="p-2 transform scale-150">

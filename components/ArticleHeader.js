@@ -16,7 +16,7 @@ const months = [
   'December'
 ]
 
-export default ({ tags, date, title, slug }) => {
+const ArticleHeader = ({ tags, date, title, slug }) => {
   const d = new Date(date)
   const dateStr = `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`
 
@@ -28,6 +28,8 @@ export default ({ tags, date, title, slug }) => {
     <Title slug={slug} title={title} />
   </div>)
 }
+
+export default ArticleHeader
 
 const Title = ({ slug, title }) => {
   const h = <h1 className="font-sans text-2xl font-thin hover:underline">{title}</h1>

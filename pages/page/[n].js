@@ -16,7 +16,7 @@ export default ({ articles, prevPage, nextPage }) => (
     {articles.map((md, i) => <Excerpt key={i} md={md}/>)}
     <div className="flex flex-row self-center">
       {prevPage ? <NavLink pageNum={prevPage}>&lt; Prev</NavLink> : <Link href={'/'}><a className="self-center btn-nav">&lt; Prev</a></Link>}
-      {nextPage !== undefined && <NavLink pageNum={nextPage}>Next &gt;</NavLink>}
+      {nextPage && <NavLink pageNum={nextPage}>Next &gt;</NavLink>}
     </div>
   </Layout>
 )
@@ -28,7 +28,7 @@ export async function getStaticProps({ params }) {
 
   const numPages = getNumPages()
   const prevPage = pageNum > 0 ? pageNum - 1 : null
-  const nextPage = pageNum === numPages - 1 ? null : pageNum + 1
+  const nextPage = pageNum === (numPages - 1) ? null : pageNum + 1
 
   return { props: { articles, prevPage, nextPage } }
 }

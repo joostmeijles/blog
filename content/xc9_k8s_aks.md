@@ -91,7 +91,11 @@ More detailed steps, e.g. how to connect ACR to your cluster, are described [her
 
 The movie below recaps the steps above and shows some basic commands to inspect your cluster.
 
-{{< youtube tZUqtDLOSs8 >}}
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/tZUqtDLOSs8" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen/>
 
 # Deploy Solr to AKS
 Now that we have an empty AKS cluster up and running, lets see what it takes to deploy a single service.
@@ -199,7 +203,11 @@ After the persistent storage is allocated, this takes a little while, the Pod is
 
 Watch below movie to see how applying the K8S Solr spec works out in practice:
 
-{{< youtube 6oRDk36usRw >}}
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/6oRDk36usRw" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen/>
 
 # Deploy Sitecore XC 9.1 to AKS
 Next step is to deploy the full Sitecore XC 9.1 setup. This involves basically the same steps as shown for Solr, plus some configuration for;
@@ -262,7 +270,11 @@ A fully detailed description of what to configure can be found [here](https://gi
 
 Want a visual impression of how it all works? Watch the following movie..
 
-{{< youtube YBYQvZKGqEo >}}
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/YBYQvZKGqEo" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen/>
 
 # Scale
 Till now we have seen how to create a cluster, deploy a service, provision storage, and configure a secret.
@@ -366,7 +378,11 @@ of Pods. Downscaling Pods will happen after a (default) cool down period of 5 mi
 You can find an even more detailed description of above steps in [this README](https://github.com/joostmeijles/xc9-k8s/blob/master/scale/README.md).
 
 See Horizontal Pod Autoscaling in action:
-{{< youtube HxroMFxF3p0 >}}
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/HxroMFxF3p0" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen/>
 
 # Conclusion
 Azure Kubernetes Service is the easiest way to deploy your Sitecore Docker containers to the cloud. 
